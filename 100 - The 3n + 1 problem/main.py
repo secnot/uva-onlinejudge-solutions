@@ -3,10 +3,9 @@ import functools
 
 
 @functools.lru_cache(None)
-def cycle_length(start):
+def cycle_length(n):
     count = 1
 
-    n = start
     while n != 1:
         count += 1
         if n%2 ==1:

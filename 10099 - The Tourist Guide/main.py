@@ -33,8 +33,9 @@ def load_scenario():
     return adjList, start, destination, tourists
    
 
-def best_route_trips(adjList, start, dest):
-    
+def best_route_max_passengers(adjList, start, dest):
+    """Find route with most passengers per trip using BFS, and return
+    its max passengers per trip""" 
     vertices = len(adjList)
     discovered = [False for v in range(vertices)]
     processed = [False for v in range(vertices)]
@@ -77,8 +78,8 @@ if __name__ == '__main__':
             break
 
         adjList, start, dest, passengers = scenario
-        passengers_trip = best_route_trips(adjList, start, dest)
-        trips = ceil((passengers)/(passengers_trip-1))
+        passengers_trip = best_route_max_passengers(adjList, start, dest)
+        trips = ceil((passengers)/(passengers_trip-1)) # Remember the guide
         print("Scenario #{}".format(s))
         print("Minimum Number of Trips = {}\n".format(trips))
     

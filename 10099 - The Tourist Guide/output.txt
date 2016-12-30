@@ -1,0 +1,300 @@
+Scenario #1
+Minimum Number of Trips = 2
+
+Scenario #2
+Minimum Number of Trips = 2
+
+Scenario #3
+Minimum Number of Trips = 2
+
+Scenario #4
+Minimum Number of Trips = 15
+
+Scenario #5
+Minimum Number of Trips = 2
+
+Scenario #6
+Minimum Number of Trips = 6
+
+Scenario #7
+Minimum Number of Trips = 23
+
+Scenario #8
+Minimum Number of Trips = 5
+
+Scenario #9
+Minimum Number of Trips = 3
+
+Scenario #10
+Minimum Number of Trips = 3
+
+Scenario #11
+Minimum Number of Trips = 2
+
+Scenario #12
+Minimum Number of Trips = 22
+
+Scenario #13
+Minimum Number of Trips = 5
+
+Scenario #14
+Minimum Number of Trips = 4
+
+Scenario #15
+Minimum Number of Trips = 1
+
+Scenario #16
+Minimum Number of Trips = 1
+
+Scenario #17
+Minimum Number of Trips = 6
+
+Scenario #18
+Minimum Number of Trips = 6
+
+Scenario #19
+Minimum Number of Trips = 9
+
+Scenario #20
+Minimum Number of Trips = 3
+
+Scenario #21
+Minimum Number of Trips = 2
+
+Scenario #22
+Minimum Number of Trips = 3
+
+Scenario #23
+Minimum Number of Trips = 3
+
+Scenario #24
+Minimum Number of Trips = 1
+
+Scenario #25
+Minimum Number of Trips = 4
+
+Scenario #26
+Minimum Number of Trips = 1
+
+Scenario #27
+Minimum Number of Trips = 4
+
+Scenario #28
+Minimum Number of Trips = 2
+
+Scenario #29
+Minimum Number of Trips = 3
+
+Scenario #30
+Minimum Number of Trips = 1
+
+Scenario #31
+Minimum Number of Trips = 2
+
+Scenario #32
+Minimum Number of Trips = 3
+
+Scenario #33
+Minimum Number of Trips = 4
+
+Scenario #34
+Minimum Number of Trips = 3
+
+Scenario #35
+Minimum Number of Trips = 3
+
+Scenario #36
+Minimum Number of Trips = 3
+
+Scenario #37
+Minimum Number of Trips = 1
+
+Scenario #38
+Minimum Number of Trips = 2
+
+Scenario #39
+Minimum Number of Trips = 4
+
+Scenario #40
+Minimum Number of Trips = 5
+
+Scenario #41
+Minimum Number of Trips = 3
+
+Scenario #42
+Minimum Number of Trips = 9
+
+Scenario #43
+Minimum Number of Trips = 3
+
+Scenario #44
+Minimum Number of Trips = 2
+
+Scenario #45
+Minimum Number of Trips = 18
+
+Scenario #46
+Minimum Number of Trips = 2
+
+Scenario #47
+Minimum Number of Trips = 2
+
+Scenario #48
+Minimum Number of Trips = 2
+
+Scenario #49
+Minimum Number of Trips = 2
+
+Scenario #50
+Minimum Number of Trips = 1
+
+Scenario #51
+Minimum Number of Trips = 5
+
+Scenario #52
+Minimum Number of Trips = 1
+
+Scenario #53
+Minimum Number of Trips = 6
+
+Scenario #54
+Minimum Number of Trips = 4
+
+Scenario #55
+Minimum Number of Trips = 3
+
+Scenario #56
+Minimum Number of Trips = 2
+
+Scenario #57
+Minimum Number of Trips = 2
+
+Scenario #58
+Minimum Number of Trips = 13
+
+Scenario #59
+Minimum Number of Trips = 2
+
+Scenario #60
+Minimum Number of Trips = 7
+
+Scenario #61
+Minimum Number of Trips = 7
+
+Scenario #62
+Minimum Number of Trips = 4
+
+Scenario #63
+Minimum Number of Trips = 3
+
+Scenario #64
+Minimum Number of Trips = 1
+
+Scenario #65
+Minimum Number of Trips = 4
+
+Scenario #66
+Minimum Number of Trips = 4
+
+Scenario #67
+Minimum Number of Trips = 1
+
+Scenario #68
+Minimum Number of Trips = 5
+
+Scenario #69
+Minimum Number of Trips = 2
+
+Scenario #70
+Minimum Number of Trips = 4
+
+Scenario #71
+Minimum Number of Trips = 3
+
+Scenario #72
+Minimum Number of Trips = 4
+
+Scenario #73
+Minimum Number of Trips = 2
+
+Scenario #74
+Minimum Number of Trips = 3
+
+Scenario #75
+Minimum Number of Trips = 6
+
+Scenario #76
+Minimum Number of Trips = 3
+
+Scenario #77
+Minimum Number of Trips = 3
+
+Scenario #78
+Minimum Number of Trips = 8
+
+Scenario #79
+Minimum Number of Trips = 4
+
+Scenario #80
+Minimum Number of Trips = 2
+
+Scenario #81
+Minimum Number of Trips = 20
+
+Scenario #82
+Minimum Number of Trips = 1
+
+Scenario #83
+Minimum Number of Trips = 2
+
+Scenario #84
+Minimum Number of Trips = 4
+
+Scenario #85
+Minimum Number of Trips = 12
+
+Scenario #86
+Minimum Number of Trips = 1
+
+Scenario #87
+Minimum Number of Trips = 3
+
+Scenario #88
+Minimum Number of Trips = 8
+
+Scenario #89
+Minimum Number of Trips = 4
+
+Scenario #90
+Minimum Number of Trips = 2
+
+Scenario #91
+Minimum Number of Trips = 4
+
+Scenario #92
+Minimum Number of Trips = 6
+
+Scenario #93
+Minimum Number of Trips = 3
+
+Scenario #94
+Minimum Number of Trips = 9
+
+Scenario #95
+Minimum Number of Trips = 2
+
+Scenario #96
+Minimum Number of Trips = 2
+
+Scenario #97
+Minimum Number of Trips = 4
+
+Scenario #98
+Minimum Number of Trips = 2
+
+Scenario #99
+Minimum Number of Trips = 4
+
+Scenario #100
+Minimum Number of Trips = 2
+

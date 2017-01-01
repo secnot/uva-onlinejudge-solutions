@@ -1,5 +1,5 @@
 # 10004 - Bicoloring
-In 1976 the “Four Color Map Theorem” was proven with the assistance of a computer. This theorem
+In 1976 the _“Four Color Map Theorem”_ was proven with the assistance of a computer. This theorem
 states that every map can be colored using only four colors, in such a way that no region is colored
 using the same color as a neighbor region.
 Here you are asked to solve a simpler similar problem. You have to decide whether a given arbitrary

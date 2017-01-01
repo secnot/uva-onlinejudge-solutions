@@ -21,6 +21,7 @@ The output consists of a single integer, the number of words in the longest edit
 
 ## Sample Input
 
+```bash
 cat
 dig
 dog
@@ -30,8 +31,11 @@ fine
 fog
 log
 wine
+```
 
 
 ## Sample Output
 
+```bash
 5
+```

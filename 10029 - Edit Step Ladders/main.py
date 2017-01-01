@@ -27,9 +27,10 @@ def word_transformation_generator(w):
 
 def find_longest_ladder(words):
     """ Words is in essence a DAG (Directed Acyclic Graph) in topological order
-    So if we calculate the longest ladder from a word to the elements before it,
-    the path won't change when we add more elements after it.
-    Taking advantage of this fact  ...
+    So if we calculate the longest ladder starting with a word to the with in 
+    elements before it, the path won't change when we add more elements after it.
+    Taking advantage of this fact we can incremetally calculate the longest path
+    as new words are added.
     """
     # Initialize max length path for each word  
     wpath = {w: 0 for w in words[:-1]}

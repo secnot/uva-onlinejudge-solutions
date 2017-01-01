@@ -9,6 +9,9 @@ understands that it may not always be possible for him to take all the tourists 
 in a single trip. For example, consider the following road map of 7 cities. The edges connecting the
 cities represent the roads and the number written on each edge indicates the passenger limit of the bus
 service that runs on that road.
+
+![cities graph diagram](docs/graph.png)
+
 Now, if he wants to take 99 tourists from city 1 to city 7, he will require at least 5 trips and the
 route he should take is : 1 - 2 - 4 - 7.
 But, Mr. G. finds it difficult to find the best route all by himself so that he may be able to take all
@@ -19,10 +22,10 @@ the tourists to the destination city in minimum number of trips. So, he seeks yo
 
 The input will contain one or more test cases. The first line of each test case will contain two integers:
 *N (N ≤ 100)* and *R* representing respectively the number of cities and the number of road segments.
-Then R lines will follow each containing three integers: *C<sub>1</sub>, C<sub>2</sub>* and 
+Then *R* lines will follow each containing three integers: *C<sub>1</sub>, C<sub>2</sub>* and 
 *P. C<sub>1</sub>* and *C<sub>2</sub>* are the city numbers
 and *P (P > 1)* is the limit on the maximum number of passengers to be carried by the bus service
-between the two cities. City numbers are positive integers ranging from 1 to N. The (*R* + 1)-th line
+between the two cities. City numbers are positive integers ranging from 1 to *N*. The (*R* + 1)-th line
 will contain three integers: *S, D* and *T* representing respectively the starting city, the destination city
 and the number of tourists to be guided.
 

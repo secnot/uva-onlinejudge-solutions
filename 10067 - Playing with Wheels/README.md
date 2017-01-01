@@ -7,6 +7,8 @@ wheel has two buttons associated with it. Pressing the button marked with a *lef
 wheel one digit in the clockwise direction and pressing the one marked with the *right arrow* rotates it
 by one digit in the opposite direction.
 
+[Wheels image](docs/wheels.png)
+
 The game starts with an initial configuration of the wheels. Say, in the initial configuration the
 topmost digits form the integer *S<sub>1</sub>S<sub>2</sub>S<sub>3</sub>S<sub>4</sub>*. 
 You will be given some (say, *n*) forbidden configurations *F<sub>i1</sub> F<sub>i2</sub> F<sub>i3</sub> F<sub>i4</sub>*

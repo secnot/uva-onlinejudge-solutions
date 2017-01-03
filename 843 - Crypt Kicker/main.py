@@ -10,7 +10,8 @@ def load_num():
 
 
 def valid_sub(enc, word, subs):
-    
+    """Check if the a substituion dict is valid to convert
+    from enc to word."""
     if len(enc) != len(word):
         return False
 
@@ -22,6 +23,8 @@ def valid_sub(enc, word, subs):
 
 
 def create_sub(enc, word, subs):
+    """Create a new substitucion dict where the missing substitutions
+    to got from enc to word are added"""
     new_subs = copy(subs)
 
     for e, w in zip(enc, word):
@@ -41,7 +44,6 @@ def create_sub(enc, word, subs):
 
 def decrypt(enc, words, subs=None):
     """Recursive solution using backtracking"""
-
     if subs is None:
         subs = {c: None for c in ALPHABET}
 

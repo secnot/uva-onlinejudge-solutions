@@ -8,6 +8,7 @@ PLAINTEXT = 'the quick brown fox jumps over the lazy dog'
 def read_num():
     return int(sys.stdin.readline())
 
+
 def load_case():
     case = []
     
@@ -18,7 +19,6 @@ def load_case():
             case.append(line.rstrip())
     
     return case
-
 
 
 def has_same_spaces(plain, cipher):
@@ -35,12 +35,14 @@ def has_same_spaces(plain, cipher):
 
     return True
 
-def has_all_chars(cipher): 
+
+def has_all_chars(cipher):
     return set(cipher.replace(' ', '')) == ALPHABET_SET
 
+
 def substitute(line, subs):
-    s = ""
-    return s.join(subs[c] for c in line)
+    return "".join(subs[c] for c in line)
+
 
 def decode(case):
     
@@ -71,7 +73,7 @@ def decode(case):
     dec = []
     for line in case:
         dec.append(substitute(line, subs))
-
+    
     return dec
 
 

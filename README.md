@@ -1,8 +1,9 @@
-# uva-onlinejudge-solutions
+# UVa Online Judge solutions in Python
 
 My python solutions to some uva-onlinejudge problems
 
 
 ## Other solutions
 
-[C++ solution repo](https://github.com/ajahuang/UVa)
+[C++ solutions](https://github.com/ajahuang/UVa)
+[Go solutions](https://github.com/codingsince1985/UVa)

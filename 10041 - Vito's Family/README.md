@@ -20,7 +20,8 @@ where they live (0 < s<sub>i</sub> < 30000 ). Note that several relatives could 
 ## Output
 
 For each test case your program must write the minimal sum of distances from the optimal Vito’s house
-to each one of his relatives. The distance between two street numbers si and sj is dij = |si − sj |.
+to each one of his relatives. The distance between two street numbers *s<sub>i</sub>* and *s<sub>j</sub>* 
+is *d<sub>ij</sub> = |s<sub>i</sub> − s<sub>j</sub> |*.
 
 
 ## Sample Input

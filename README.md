@@ -5,5 +5,5 @@ My python solutions to some uva-onlinejudge problems
 
 ## Other solutions
 
-[C++ solutions](https://github.com/ajahuang/UVa)
-[Go solutions](https://github.com/codingsince1985/UVa)
+* [C++ solutions](https://github.com/ajahuang/UVa)
+* [Go solutions](https://github.com/codingsince1985/UVa)

@@ -14,7 +14,7 @@ Each test case will be separated by a single line.
 
 ## Output
 
-For each test case, your program should print X in the same format as Y was given in input.
+For each test case, your program should print *X* in the same format as *Y* was given in input.
 Print a blank line between the outputs for two consecutive test cases.
 
 

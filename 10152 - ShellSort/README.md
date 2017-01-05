@@ -1,14 +1,14 @@
 # 10152 - ShellSort
 
-*He made each turtle stand on another one’s back
-And he piled them all up in a nine-turtle stack.
-And then Yertle climbed up. He sat down on the pile.
-What a wonderful view! He could see ’most a mile!*
+*He made each turtle stand on another one’s back  
+And he piled them all up in a nine-turtle stack.  
+And then Yertle climbed up. He sat down on the pile.  
+What a wonderful view! He could see ’most a mile!*  
 
 King Yertle wishes to rearrange his turtle throne to place his highest-ranking nobles and closest
 advisors nearer to the top. A single operation is available to change the order of the turtles in the
 stack: a turtle can crawl out of its position in the stack and climb up over the other turtles to sit on
-the top.
+the top.  
 Given an original ordering of a turtle stack and a required ordering for the same turtle stack, your
 job is to determine a minimal sequence of operations that rearranges the original stack into the required
 stack.

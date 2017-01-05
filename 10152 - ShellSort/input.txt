@@ -1,0 +1,49 @@
+4 
+3 
+Yertle 
+Duke of Earl 
+Sir Lancelot 
+Duke of Earl 
+Yertle 
+Sir Lancelot 
+9 
+Yertle 
+Duke of Earl 
+Sir Lancelot 
+Elizabeth Windsor 
+Michael Eisner 
+Richard M. Nixon 
+Mr. Rogers 
+Ford Perfect 
+Mack 
+Yertle 
+Richard M. Nixon 
+Sir Lancelot 
+Duke of Earl 
+Elizabeth Windsor 
+Michael Eisner 
+Mr. Rogers 
+Ford Perfect 
+Mack 
+7 
+Yertle 
+Oscar 
+Baron 
+Lord 
+King 
+White 
+Kong 
+Oscar 
+Baron 
+Lord 
+Yertle 
+King 
+Kong 
+White 
+3 
+Yertle 
+Duke of Earl 
+Sir Lancelot 
+Yertle 
+Duke of Earl 
+Sir Lancelot 

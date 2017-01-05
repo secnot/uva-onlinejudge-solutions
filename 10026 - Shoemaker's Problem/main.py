@@ -1,5 +1,4 @@
 import sys
-from collections import namedtuple
 
 class Shoe(object):
 
@@ -13,8 +12,6 @@ class Shoe(object):
 
     def __str__(self):
         return "Shoe({}, {}, {})".format(self.sid, self.time, self.fine)
-
-
 
 def load_num():
     line = sys.stdin.readline()
@@ -34,9 +31,7 @@ def load_case():
     return shoes
 
 def schedule_shoes(shoes):
-    schedule = sorted(shoes)
-    
-    return [s.sid for s in schedule]
+    return [s.sid for s in sorted(shoes)]
 
 if __name__ == "__main__":
     

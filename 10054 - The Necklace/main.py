@@ -74,7 +74,7 @@ if __name__ == '__main__':
         print("Case #{}".format(c+1))
         if necklace:
             # Print all necklace beads together for faster IO (damn timelimits)
-            # Almost a third of the time is wasted in IO
+            # Almost a third of the time is wasted on IO
             necklace_str = ""
             for b in necklace:
                 necklace_str += "{} {}\n".format(b[0], b[1])

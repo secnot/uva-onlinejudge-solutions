@@ -25,10 +25,10 @@ bead. Colors are represented by integers ranging from 1 to 50.
 
 For each test case in the input first output the test case number as shown in the sample output. Then
 if you apprehend that some beads may be lost just print the sentence “some beads may be lost”
-on a line by itself. Otherwise, print N lines with a single bead description on each line. Each bead
-description consists of two integers giving the colors of its two ends. For 1 ≤ i ≤ N1, the second integer
-on line i must be the same as the first integer on line i + 1. Additionally, the second integer on line
-N must be equal to the first integer on line 1. Since there are many solutions, any one of them is
+on a line by itself. Otherwise, print *N* lines with a single bead description on each line. Each bead
+description consists of two integers giving the colors of its two ends. For 1 ≤ *i* ≤ *N*1, the second integer
+on line *i* must be the same as the first integer on line *i* + 1. Additionally, the second integer on line
+*N* must be equal to the first integer on line 1. Since there are many solutions, any one of them is
 acceptable.
 Print a blank line between two successive test cases.
 

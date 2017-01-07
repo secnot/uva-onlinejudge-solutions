@@ -4,7 +4,6 @@ from collections import defaultdict, deque
 MAX_COLORS = 51
 
 
-
 def load_num():
     return int(stdin.readline())
 
@@ -16,9 +15,8 @@ def load_case():
     return [load_pair() for b in range(nbeads)] 
 
 def build_necklace(beads):
-    """Construct find an euler circuit in the graph defined by the
-    beads"""
-    # For a graph to have a euler circuits all vertices must have
+    """Construct an euler circuit in the graph defined by the beads"""
+    # For a graph to have an euler circuit all vertices must have
     # even degree. (Plus 0 or 2 odd vertices) Init and ckeck degree
     amatrix = [defaultdict(int) for _ in range(MAX_COLORS)]
     degree = defaultdict(int)
@@ -43,16 +41,11 @@ def build_necklace(beads):
         if s_degree>0:
             amatrix[color][s_color] -= 1
             amatrix[s_color][color] -= 1
-            # Removing not reachable colors should be a little faster
-            if amatrix[color][s_color] == 0:
-                del amatrix[color][s_color]
-            if amatrix[s_color][color] == 0:
-                del amatrix[s_color][color]
             return (color, s_color)
         else:
             return None
 
-    # Initialize necklace
+    # Start construction
     nxt = get_next_bead(beads[0][1])
     necklace = deque([nxt])
 

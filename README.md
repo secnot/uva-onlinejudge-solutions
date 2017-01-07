@@ -1,6 +1,9 @@
-# UVa Online Judge solutions in Python
+# UVa online judge solutions in Python
 
-My python solutions to some uva-onlinejudge problems
+[UVa Online Judge](https://uva.onlinejudge.org) is an online automated judge for programming 
+problems hosted by University of Valladolid.
+
+This repository contains my python solutions to some of the problems.
 
 
 ## Other solutions

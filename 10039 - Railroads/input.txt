@@ -166,7 +166,6 @@ Tokyo
 2
 0100 Paris
 2300 Tokyo
-0800
+0100
 Paris
-Tokyo
 Tokyo

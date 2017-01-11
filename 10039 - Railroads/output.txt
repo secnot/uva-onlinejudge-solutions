@@ -37,4 +37,5 @@ Departure 0949 Hamburg
 Arrival   1411 Darmstadt
 
 Scenario 12
-No connection
+Departure 0100 Paris
+Arrival   2300 Tokyo

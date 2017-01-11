@@ -17,8 +17,8 @@ def con_end_id(con):
     return con.uid*2+1
 
 
-ARRIVAL = "arrival"
-DEPARTURE = "departure"
+ARRIVAL =  10 #"arrival"
+DEPARTURE = 12 # "departure"
 
 
 
@@ -103,25 +103,25 @@ class PriorityQueue(object):
     def __init__(self):
         self._heap = []
         self._entry_finder = {}
-        self.REMOVED = '<removed element>'
-        self.count = 0
+        self._count = 0
 
     def add_task(self, task, priority=0):
         if task in self._entry_finder:
             self.rem_task(task)
-        entry = [priority, self.count, task]
+        entry = [priority, self._count, task, False]
         self._entry_finder[task] = entry
         heappush(self._heap, entry)
-        self.count += 1
+        self._count += 1
 
     def rem_task(self, task):
         entry = self._entry_finder.pop(task)
-        entry[-1] = self.REMOVED
+        entry[-1] = True # Mark as removed
+        entry[-2] = None # 
 
     def pop_task(self):
         while self._heap:
-            priority, count, task = heappop(self._heap)
-            if task is not self.REMOVED:
+            priority, count, task, removed = heappop(self._heap)
+            if not removed:
                 del self._entry_finder[task]
                 return task
 
@@ -168,7 +168,7 @@ def build_connection_table(cities, trains, start_time=0):
     return connections, cities
 
 
-def build_time_exp_adj(cities, city_connections, connections):
+def build_time_exp_adj(city_connections, connections):
     """Build time expanded adjacency list"""
     adjList = [list() for _ in range(2*len(connections))]
 
@@ -177,7 +177,7 @@ def build_time_exp_adj(cities, city_connections, connections):
         adjList[con_start_id(c)].append((con_end_id(c), c.t_arrival-c.t_departure, c))
 
     # Add intracity connections, delays inside city waiting until some train departure
-    for city in range(len(cities)):
+    for city in range(len(city_connections)//2):
         times = []
 
         # Append arrivals first so they are sorted first when the time
@@ -214,7 +214,7 @@ def dijkstra(adjList, start_node):
         node = pq.pop_task()
 
         for v, edge_cost, _ in adjList[node]:
-            if cost[node]+edge_cost<cost[v]:
+            if cost[node]+edge_cost<=cost[v]:
                 parent[v] = node
                 cost[v] = cost[node]+edge_cost
                 if v in pq: 
@@ -224,70 +224,85 @@ def dijkstra(adjList, start_node):
     return cost, parent
 
 
-def find_path(parent, node, node_table):
+def dijkstra_del(adjList, start_node):
+    """Dijkstra algorithm implementation"""
+    nnodes = len(adjList)
+    parent = [None for _ in range(nnodes)]
+    cost = [99999 for _ in range(nnodes)]
+    departure = [-1 for _ in range(nnodes)]
+
+    cost[start_node] = 0
+    pq = PriorityQueue()
+    pq.add_task(start_node, priority=1)
+
+    while pq:
+        node = pq.pop_task()
+        for v, edge_cost, connection in adjList[node]:
+
+            if departure[node]<0 and connection and connection.t_departure>departure[v]:
+                print('------------')
+                departure[v] = connection.t_departure
+                parent[v] = node
+
+            if departure[node] < 0 or departure[node]> departure[v]:
+                print("asdf")
+                parent[v] = node
+                if v in pq: 
+                    pq.rem_task(v)
+                departure[v] = max(departure[v], departure[node])
+                pq.add_task(v, priority = -departure[v])
+    print(departure)
+    return cost, parent
+
+
+
+def find_path(parent_lst, node, src_city, node_table):
     """Given the parent list returned by dijkstra, and node_table reconstruct
     conection schedule for a given node"""
     path = []
-    node_p = node
-
-    while node_p is not None:
-        connection = node_table.get((parent[node_p], node_p), None)
+    while node is not None:
+        connection = node_table.get((parent_lst[node], node), None)
         if connection:
             path.append(connection)
+            if connection.departure == src_city:
+                break
 
-        node_p = parent[node_p]
-  
-    return list(reversed(path))
+        node = parent_lst[node]
+ 
+    return (path[-1], path[0])
+    #return list(reversed(path))
 
 
-def find_schedule(cities, trains, src, dst, start_time):
+def find_schedule(cities, trains, src_city, dst_city, start_time):
     """Create time-expanded graph from train timetables, and then find
     shortest path from src city with Dijkstra's algorithm""" 
     # Build train connection list and dictionary containing arriving and departing
     # connections for each city
-    connections, city_connections = build_connection_table(cities, trains, start_time)
-    if not connections:
+    connections, city_connections = build_connection_table(cities, trains, start_time) 
+    start_con = city_connections[src_city, DEPARTURE]
+    dest_con = city_connections[dst_city, ARRIVAL]
+    if not connections or len(start_con)==0 or len(dest_con)==0:
         return None
 
     # Build expanded time adjacency list
-    exp_adj_list, node_table = build_time_exp_adj(cities, city_connections, connections)
+    exp_adj_list, node_table = build_time_exp_adj(city_connections, connections)
  
     # Find start node for expanded graph
-    start_con = city_connections[src, DEPARTURE]
-    if not start_con:
-        return None
-    start_nodes = list(map(con_start_id, start_con))
-    start_nodes = list(zip(start_nodes, start_con))
+    start_node = con_start_id(min(start_con, key=lambda c: c.t_departure))
 
     # Add extra node to the graph representing destination city, 
     # reachable from all destination arrival nodes.
-    # TODO: Add this node for each city in the graph???
-    dest_con = city_connections[dst, ARRIVAL]
-    if not dest_con:
-        return None
-    dest_nodes = list(map(con_end_id, dest_con))
     dest_node = len(exp_adj_list)
     exp_adj_list.append(list())
-    for d in dest_nodes:
+    for d in list(map(con_end_id, dest_con)):
         exp_adj_list[d].append((dest_node, 0, None))
 
     # Use Dijkstra to find shortest path
-    paths = []
-    for s, con in start_nodes:
-        time, parent = dijkstra(exp_adj_list, s)
-   
-        # Check there is a route to destination node
-        if time[dst] > 9999:
-            continue
-       
-        src_node = con
-        dst_node = node_table[(parent[parent[dest_node]], parent[dest_node])]
-        paths.append((src_node, dst_node)) 
-
-    if not paths:
+    time, parent = dijkstra_del(exp_adj_list, start_node)
+    if parent[dest_node] == None:
         return None
-
-    return max(paths, key = lambda p: p[0].t_departure)
+        
+    return find_path(parent, dest_node, src_city, node_table)
 
 
 if __name__ == '__main__':
@@ -296,8 +311,10 @@ if __name__ == '__main__':
  
     for s in range(nscenarios):
         cities, trains, start_city, dst_city, start_time = read_scenario()
-        schedule = find_schedule(cities, trains, start_city, dst_city, start_time)
+        if s+1 != nscenarios:
+            pass #continue
+        path = find_schedule(cities, trains, start_city, dst_city, start_time)
         print("Scenario {}".format(s+1))
-        print_schedule(schedule) 
-        if s+1 < nscenarios:
+        print_schedule(path) 
+        if s-1 < nscenarios:
             print('')

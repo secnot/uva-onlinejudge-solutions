@@ -131,7 +131,10 @@ class PriorityQueue(object):
         return item in self._entry_finder
 
     def __len__(self):
-        return len(self._heap)
+        return len(self._entry_finder)
+
+    def __str__(self):
+        return str(self._heap)
 #
 # Solution
 #
@@ -224,35 +227,55 @@ def dijkstra(adjList, start_node):
     return cost, parent
 
 
-def dijkstra_del(adjList, start_node):
+def dijkstra_del(adjList, city_node, start_node):
     """Dijkstra algorithm implementation"""
     nnodes = len(adjList)
     parent = [None for _ in range(nnodes)]
-    cost = [99999 for _ in range(nnodes)]
+    cost = [999999 for _ in range(nnodes)]
     departure = [-1 for _ in range(nnodes)]
 
-    cost[start_node] = 0
     pq = PriorityQueue()
-    pq.add_task(start_node, priority=1)
 
-    while pq:
-        node = pq.pop_task()
-        for v, edge_cost, connection in adjList[node]:
-
-            if departure[node]<0 and connection and connection.t_departure>departure[v]:
-                print('------------')
+    # Set departure value for starting nodes:
+    for v, _, _ in adjList[city_node]:
+        for w, edge_cost, connection in adjList[v]:
+            if connection:
                 departure[v] = connection.t_departure
-                parent[v] = node
 
-            if departure[node] < 0 or departure[node]> departure[v]:
-                print("asdf")
+
+    # Add start node
+    pq.add_task(start_node, priority = -departure[start_node])
+    cost[start_node] = 0
+
+    # 
+    while pq:
+        #print(pq)
+        node = pq.pop_task()
+
+        for v, edge_cost, connection in adjList[node]:
+            #print(cost[node]+edge_cost, cost[v], departure[node], departure[v]) 
+            if cost[node] + edge_cost < cost[v]:
                 parent[v] = node
                 if v in pq: 
                     pq.rem_task(v)
-                departure[v] = max(departure[v], departure[node])
+                if departure[v] < 0:
+                    departure[v] = departure[node]
+                cost[v] = cost[node]+edge_cost
                 pq.add_task(v, priority = -departure[v])
-    print(departure)
-    return cost, parent
+
+            elif cost[node]+edge_cost == cost[v] and departure[node] > departure[v]:
+                #print("here")
+                parent[v] = node
+                if v in pq: 
+                    pq.rem_task(v)
+                departure[v] = departure[node]
+                pq.add_task(v, priority = -departure[v])
+
+
+    #print(parent)
+    #print(departure)
+    #print(cost)
+    return parent
 
 
 
@@ -287,9 +310,6 @@ def find_schedule(cities, trains, src_city, dst_city, start_time):
     # Build expanded time adjacency list
     exp_adj_list, node_table = build_time_exp_adj(city_connections, connections)
  
-    # Find start node for expanded graph
-    start_node = con_start_id(min(start_con, key=lambda c: c.t_departure))
-
     # Add extra node to the graph representing destination city, 
     # reachable from all destination arrival nodes.
     dest_node = len(exp_adj_list)
@@ -297,8 +317,15 @@ def find_schedule(cities, trains, src_city, dst_city, start_time):
     for d in list(map(con_end_id, dest_con)):
         exp_adj_list[d].append((dest_node, 0, None))
 
-    # Use Dijkstra to find shortest path
-    time, parent = dijkstra_del(exp_adj_list, start_node)
+    # Add extra node to the graph representing source city, 
+    # that links to all start nodes
+    start_city_node = len(exp_adj_list)
+    exp_adj_list.append([(con_start_id(c), 0, None) for c in start_con])
+    
+    start_node = con_start_id(min(start_con, key=lambda c: c.t_departure))
+
+    # Find path
+    parent = dijkstra_del(exp_adj_list, start_city_node, start_node)
     if parent[dest_node] == None:
         return None
         
@@ -316,5 +343,4 @@ if __name__ == '__main__':
         path = find_schedule(cities, trains, start_city, dst_city, start_time)
         print("Scenario {}".format(s+1))
         print_schedule(path) 
-        if s-1 < nscenarios:
-            print('')
+        print('')

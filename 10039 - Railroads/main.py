@@ -4,6 +4,8 @@ from operator import itemgetter
 from heapq import heappop, heappush
 
 
+
+#TODO: Create class with con_start_id and con_end_id as methods
 Connection = namedtuple("Connection", ['departure', 'arrival', 't_departure', 't_arrival', 'uid'])
 
 def con_start_id(con):
@@ -15,15 +17,13 @@ def con_end_id(con):
     return con.uid*2+1
 
 
-ARRIVAL =  10 #"arrival"
-DEPARTURE = 12 # "departure"
+ARRIVAL =  "arrival"
+DEPARTURE = "departure"
 
 
 
-#
-# IO and helper functions
-#
-################################3
+# IO and helper functions/classes
+#################################
 
 
 def time_to_min(time):
@@ -95,7 +95,7 @@ def print_schedule(schedule):
 
 
 class PriorityQueue(object):
-    """Priority queue implementation used by dijkstra algorithm from:
+    """Priority queue implementation used by dijkstra algorithm, based on:
         https://docs.python.org/3.4/library/heapq.html
     """
     def __init__(self):
@@ -136,17 +136,25 @@ class PriorityQueue(object):
 
 
 
-#
 # Solution
-#
 ###########
 
-def build_connection_table(cities, trains, start_time=0):
+def build_connection_table(trains, start_time=0):
     """
-    cities (dict):
-    trains (list):
-    start_time (int): All connections departing or arriving later than
-        this will be ignored.
+    Build dictionary with a list of arrivals and departures for each city
+
+    con, city_table = bould_connection_table(....)
+    city_table[city_id, ARRIVAL]
+    city_table[city_id, DEPARTURE]
+
+    Arguments:
+        trains (list): List of trains provided through stdin
+        start_time (int): All connections departing or arriving sooner than
+            this time will be ignored.
+
+    Returns:
+        connections: List of all valied connections
+        cities: city arrival/departure connection dict 
     """
     # Per city
     cuid = 0 # Connection unique id
@@ -158,6 +166,7 @@ def build_connection_table(cities, trains, start_time=0):
     cities = defaultdict(list)
 
     for schedule in trains:
+        # TODO: USed zip
         prev_city, prev_time = schedule[0]
         for city, time in schedule[1:]:
             if prev_time >= start_time:
@@ -172,7 +181,16 @@ def build_connection_table(cities, trains, start_time=0):
 
 
 def build_time_exp_adj(city_connections, connections):
-    """Build time expanded adjacency list"""
+    """Build time expanded adjacency list
+    
+    Arguments:
+        city_connections (dict): city arrival/departure connection dict
+        connections (list): List of all valid connections
+    
+    Returns:
+        adjList
+        node_connections
+    """
     adjList = [list() for _ in range(2*len(connections))]
 
     # Add intercity connections (departure-arrival)
@@ -203,47 +221,46 @@ def build_time_exp_adj(city_connections, connections):
     return adjList, node_connection
 
 
-def dijkstra(adjList, city_node, start_node):
-    """Dijkstra algorithm implementation"""
+def dijkstra(adjList, start_node, start_city_departures):
+    """Find best path using Dijkstra, solve ties using departure time
+    Arguments:
+        adjList (list): .... time expanded
+        start_node (int): Starting node for dijkstra
+        start_city_departures (list): List of departure times for each
+            one of the nodes in the starting city 
+            [(node1, time1), (node2, time2), ...]
+    Returns:
+        List: parents/ancestor for each node
+    """
     nnodes = len(adjList)
     parent = [None for _ in range(nnodes)]
     cost = [999999 for _ in range(nnodes)]
     departure = [-1 for _ in range(nnodes)]
 
+
+    # Initialize departure time
+    for n, d in start_city_departures:
+        departure[n] = d
+
+    # Initialize priority queue & start
     pq = PriorityQueue()
-
-    # Find departure value for city starting nodes:
-    for v, _, _ in adjList[city_node]:
-        for w, edge_cost, connection in adjList[v]:
-            if connection:
-                departure[v] = connection.t_departure
-
-
-    # Add start node
     pq.add_task(start_node, priority = -departure[start_node])
     cost[start_node] = 0
 
-    # 
     while pq:
         node = pq.pop_task()
 
         for v, edge_cost, connection in adjList[node]:
-            if cost[node] + edge_cost < cost[v]:
-                parent[v] = node
-                if v in pq: 
-                    pq.rem_task(v)
-                if departure[v] < 0:
-                    departure[v] = departure[node]
+            if cost[node] + edge_cost < cost[v] or\
+                cost[node]+edge_cost == cost[v] and departure[node] > departure[v]:
+                
                 cost[v] = cost[node]+edge_cost
-                pq.add_task(v, priority = -departure[v])
-
-            elif cost[node]+edge_cost == cost[v] and departure[node] > departure[v]:
                 parent[v] = node
                 if v in pq: 
                     pq.rem_task(v)
-                departure[v] = departure[node]
+                if departure[v] < 0 or departure[node]>departure[v]:
+                    departure[v] = departure[node]
                 pq.add_task(v, priority = -departure[v])
-
 
     return parent
 
@@ -262,41 +279,49 @@ def find_path(parent_lst, node, src_city, node_table):
 
         node = parent_lst[node]
  
-    return (path[-1], path[0])
-    #return list(reversed(path))
+    return list(reversed(path))
 
 
 def find_schedule(cities, trains, src_city, dst_city, start_time):
     """Create time-expanded graph from train timetables, and then find
-    shortest path from src city using Dijkstra's algorithm""" 
+    shortest path from src city using modified Dijkstra's algorithm
+   
+    Arguments:
+        trains (list): List of trains as read from stdin 
+            [[(time1, cityA), (time2, cityB), ...], [...], [...]]
+        src_city (int): Start city id
+        dst_city (int): Destination city id
+        start_time (int): Minimal departure time accepted
+
+    Return:
+        (list): List of connections used by best train schedule 
+    """ 
     # Build train connection list and dictionary containing arriving and departing
     # connections for each city
-    connections, city_connections = build_connection_table(cities, trains, start_time) 
-    start_con = city_connections[src_city, DEPARTURE]
-    dest_con = city_connections[dst_city, ARRIVAL]
+    connections, city_connections = build_connection_table(trains, start_time) 
+    start_con = city_connections[src_city, DEPARTURE] # Outgoing connections from src_city
+    dest_con = city_connections[dst_city, ARRIVAL] # Incoming connection to dst_city
     if not connections or len(start_con)==0 or len(dest_con)==0:
         return None
 
     # Build expanded time adjacency list
     exp_adj_list, node_table = build_time_exp_adj(city_connections, connections)
  
-    # Add extra node to the graph representing destination city, 
+    # Add an extra node to the graph representing destination city, 
     # reachable from all destination arrival nodes.
     dest_node = len(exp_adj_list)
     exp_adj_list.append(list())
     for d in list(map(con_end_id, dest_con)):
         exp_adj_list[d].append((dest_node, 0, None))
 
-    # Add extra node to the graph representing source city, 
-    # that links to all start nodes
-    start_city_node = len(exp_adj_list)
-    exp_adj_list.append([(con_start_id(c), 0, None) for c in start_con])
-   
+    # Start city departure time for outgoing edges start nodes
+    start_city_departures = [(con_start_id(c), c.t_departure) for c in start_con]
+
     # Node where dijkstra will start
     start_node = con_start_id(min(start_con, key=lambda c: c.t_departure))
 
     # Find path
-    parent = dijkstra(exp_adj_list, start_city_node, start_node)
+    parent = dijkstra(exp_adj_list, start_node, start_city_departures)
     if parent[dest_node] == None:
         return None
         

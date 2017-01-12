@@ -1,4 +1,4 @@
-12
+14
 3
 A
 B
@@ -169,3 +169,45 @@ Tokyo
 0100
 Paris
 Tokyo
+4
+Paris
+Madrid
+Berlin
+Rome
+4
+2
+0100 Paris
+0110 Madrid
+2
+0101 Paris
+0105 Berlin
+2
+0106 Berlin
+0108 Madrid
+2
+0200 Madrid
+0230 Rome
+0001
+Paris
+Rome
+4
+Paris
+Madrid
+Berlin
+Rome
+4
+2
+0100 Paris
+0110 Madrid
+2
+0101 Paris
+0105 Berlin
+2
+0106 Berlin
+0111 Madrid
+2
+0200 Madrid
+0230 Rome
+0001
+Paris
+Rome

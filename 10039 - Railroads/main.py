@@ -2,9 +2,7 @@ import sys
 from collections import defaultdict, namedtuple
 from operator import itemgetter
 from heapq import heappop, heappush
-from pprint import PrettyPrinter
 
-pp = PrettyPrinter(indent=4)
 
 Connection = namedtuple("Connection", ['departure', 'arrival', 't_departure', 't_arrival', 'uid'])
 
@@ -135,11 +133,13 @@ class PriorityQueue(object):
 
     def __str__(self):
         return str(self._heap)
+
+
+
 #
 # Solution
 #
 ###########
-
 
 def build_connection_table(cities, trains, start_time=0):
     """
@@ -203,31 +203,7 @@ def build_time_exp_adj(city_connections, connections):
     return adjList, node_connection
 
 
-def dijkstra(adjList, start_node):
-    """Dijkstra algorithm implementation"""
-    nnodes = len(adjList)
-    parent = [None for _ in range(nnodes)]
-    cost = [999999 for _ in range(nnodes)]
-
-    cost[start_node] = 0
-    pq = PriorityQueue()
-    pq.add_task(start_node, priority=0)
-
-    while pq:
-        node = pq.pop_task()
-
-        for v, edge_cost, _ in adjList[node]:
-            if cost[node]+edge_cost<=cost[v]:
-                parent[v] = node
-                cost[v] = cost[node]+edge_cost
-                if v in pq: 
-                    pq.rem_task(v)
-                pq.add_task(v, priority = cost[v])
-
-    return cost, parent
-
-
-def dijkstra_del(adjList, city_node, start_node):
+def dijkstra(adjList, city_node, start_node):
     """Dijkstra algorithm implementation"""
     nnodes = len(adjList)
     parent = [None for _ in range(nnodes)]
@@ -236,7 +212,7 @@ def dijkstra_del(adjList, city_node, start_node):
 
     pq = PriorityQueue()
 
-    # Set departure value for starting nodes:
+    # Find departure value for city starting nodes:
     for v, _, _ in adjList[city_node]:
         for w, edge_cost, connection in adjList[v]:
             if connection:
@@ -249,11 +225,9 @@ def dijkstra_del(adjList, city_node, start_node):
 
     # 
     while pq:
-        #print(pq)
         node = pq.pop_task()
 
         for v, edge_cost, connection in adjList[node]:
-            #print(cost[node]+edge_cost, cost[v], departure[node], departure[v]) 
             if cost[node] + edge_cost < cost[v]:
                 parent[v] = node
                 if v in pq: 
@@ -264,7 +238,6 @@ def dijkstra_del(adjList, city_node, start_node):
                 pq.add_task(v, priority = -departure[v])
 
             elif cost[node]+edge_cost == cost[v] and departure[node] > departure[v]:
-                #print("here")
                 parent[v] = node
                 if v in pq: 
                     pq.rem_task(v)
@@ -272,9 +245,6 @@ def dijkstra_del(adjList, city_node, start_node):
                 pq.add_task(v, priority = -departure[v])
 
 
-    #print(parent)
-    #print(departure)
-    #print(cost)
     return parent
 
 
@@ -298,7 +268,7 @@ def find_path(parent_lst, node, src_city, node_table):
 
 def find_schedule(cities, trains, src_city, dst_city, start_time):
     """Create time-expanded graph from train timetables, and then find
-    shortest path from src city with Dijkstra's algorithm""" 
+    shortest path from src city using Dijkstra's algorithm""" 
     # Build train connection list and dictionary containing arriving and departing
     # connections for each city
     connections, city_connections = build_connection_table(cities, trains, start_time) 
@@ -321,11 +291,12 @@ def find_schedule(cities, trains, src_city, dst_city, start_time):
     # that links to all start nodes
     start_city_node = len(exp_adj_list)
     exp_adj_list.append([(con_start_id(c), 0, None) for c in start_con])
-    
+   
+    # Node where dijkstra will start
     start_node = con_start_id(min(start_con, key=lambda c: c.t_departure))
 
     # Find path
-    parent = dijkstra_del(exp_adj_list, start_city_node, start_node)
+    parent = dijkstra(exp_adj_list, start_city_node, start_node)
     if parent[dest_node] == None:
         return None
         

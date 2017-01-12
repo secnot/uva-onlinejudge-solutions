@@ -93,7 +93,6 @@ def print_schedule(schedule):
         print("Arrival   {} {}".format(dst_time, dst_name))
  
 
-
 class PriorityQueue(object):
     """Priority queue implementation used by dijkstra algorithm, based on:
         https://docs.python.org/3.4/library/heapq.html
@@ -123,7 +122,7 @@ class PriorityQueue(object):
                 del self._entry_finder[task]
                 return task
 
-        raise KeyError('pop from an empty priority queue')
+        raise KeyError('Priority queue is empty')
 
     def __contains__(self, item):
         return item in self._entry_finder
@@ -133,7 +132,6 @@ class PriorityQueue(object):
 
     def __str__(self):
         return str(self._heap)
-
 
 
 # Solution
@@ -166,7 +164,7 @@ def build_connection_table(trains, start_time=0):
     cities = defaultdict(list)
 
     for schedule in trains:
-        # TODO: USed zip
+        # TODO: Use zip
         prev_city, prev_time = schedule[0]
         for city, time in schedule[1:]:
             if prev_time >= start_time:
@@ -189,7 +187,6 @@ def build_time_exp_adj(city_connections, connections):
     
     Returns:
         adjList
-        node_connections
     """
     adjList = [list() for _ in range(2*len(connections))]
 
@@ -216,9 +213,7 @@ def build_time_exp_adj(city_connections, connections):
         for node, next_node in zip(times, times[1:]):
             adjList[node[1]].append((next_node[1], next_node[0]-node[0], None))
 
-    node_connection = {(con_start_id(c), con_end_id(c)): c for c in connections}
-
-    return adjList, node_connection
+    return adjList
 
 
 def dijkstra(adjList, start_node, start_city_departures):
@@ -265,19 +260,20 @@ def dijkstra(adjList, start_node, start_city_departures):
     return parent
 
 
-
-def find_path(parent_lst, node, src_city, node_table):
-    """Given the parent list returned by dijkstra, and node_table reconstruct
-    conection schedule for a given node"""
+def find_path(adjList, parent, node, src_city):
+    """Given the graph adjList and the parent list returned by dijkstra, 
+    reconstruct the train schedule from a node to source_city"""
     path = []
-    while node is not None:
-        connection = node_table.get((parent_lst[node], node), None)
-        if connection:
-            path.append(connection)
-            if connection.departure == src_city:
-                break
 
-        node = parent_lst[node]
+    while node is not None:
+        for v, edge, conn in adjList[parent[node]]:
+            if conn:
+                path.append(conn)
+
+        if path and path[-1].departure == src_city:
+            break
+        
+        node = parent[node]
  
     return list(reversed(path))
 
@@ -305,7 +301,7 @@ def find_schedule(cities, trains, src_city, dst_city, start_time):
         return None
 
     # Build expanded time adjacency list
-    exp_adj_list, node_table = build_time_exp_adj(city_connections, connections)
+    exp_adj_list = build_time_exp_adj(city_connections, connections)
  
     # Add an extra node to the graph representing destination city, 
     # reachable from all destination arrival nodes.
@@ -325,7 +321,7 @@ def find_schedule(cities, trains, src_city, dst_city, start_time):
     if parent[dest_node] == None:
         return None
         
-    return find_path(parent, dest_node, src_city, node_table)
+    return find_path(exp_adj_list, parent, dest_node, src_city)
 
 
 if __name__ == '__main__':

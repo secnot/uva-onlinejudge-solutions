@@ -51,7 +51,7 @@ order). You should print a blank line between output sets.
 
 ## Sample Input
 
-```bash
+```
 6
 sugarloaf
 maracana
@@ -84,7 +84,7 @@ colombo sambodromo
 
 ## Sample Output
 
-```bash
+```
 City map #1: 1 camera(s) found
 sugarloaf
 City map #2: 1 camera(s) found

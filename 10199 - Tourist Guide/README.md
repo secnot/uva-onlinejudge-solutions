@@ -40,7 +40,7 @@ read until *N* = 0, and this input should not be processed.
 
 For each city map you must print the line:
 
-```bash
+```
 City map #d: c camera(s) found
 ```
 

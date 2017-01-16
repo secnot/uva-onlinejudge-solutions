@@ -1,7 +1,13 @@
 import sys
 from itertools import count
 from collections import defaultdict, deque
+import enum
 
+
+class VStatus(enum.IntEnum):
+    Undiscovered = 0
+    Discovered = 1,
+    Processed = 2
 
 
 class Graph(object):
@@ -12,10 +18,6 @@ class Graph(object):
         if edges:
             self.add_edges(edges)
  
-        self._process_vertex_early = self._default_process_vertex_early
-        self._process_vertex_late = self._default_process_vertex_late
-        self._process_edge = self._default_process_edge
-  
     def vertices(self):
         return list(self._adj.keys())
 
@@ -91,8 +93,18 @@ class Graph(object):
     def _default_process_edge(self, v, e):
         return
 
-    def bfs(self, start):
+    def bfs(self, start,
+            process_vertex_early = None,
+            process_vertex_late = None,
+            process_edge = None):
         """Breath first search implementation"""
+        if not process_vertex_early: 
+            process_vertex_early = self._default_process_vertex_early
+        if not process_vertex_late:
+            process_vertex_late = self._default_process_vertex_late
+        if not process_edge:
+            process_edge = self._default_process_edge
+        
         self._discovered = defaultdict(bool)
         self._processed = defaultdict(bool)
         self._parent = defaultdict(lambda: None)
@@ -101,21 +113,31 @@ class Graph(object):
         self._discovered[start] = True
         while q:
             v = q.popleft()
-            self._process_vertex_early(self, v)
+            process_vertex_early(self, v)
             self._processed[v] = True
 
             for e in self._adj[v]:
                 if not self._processed[e] or self._directed:
-                    self._process_edge(self, v, e)
+                    process_edge(self, v, e)
                 if not self._discovered[e]:
                     q.append(e)
                     self._discovered[e] = True
                     self._parent[e] = v
 
-            self._process_vertex_late(self, v)
+            process_vertex_late(self, v)
 
-    def dfs(self, v):
+    def dfs(self, v,
+            process_vertex_early=None,
+            process_vertex_late=None,
+            process_edge=None):
         """Depth first search (recursive)"""   
+        if not process_vertex_early: 
+            process_vertex_early = self._default_process_vertex_early
+        if not process_vertex_late:
+            process_vertex_late = self._default_process_vertex_late
+        if not process_edge:
+            process_edge = self._default_process_edge
+
         self._discovered = defaultdict(bool)
         self._processed = defaultdict(bool)
         self._entry_time = defaultdict(lambda: None) # Entry time
@@ -124,9 +146,15 @@ class Graph(object):
         self._finished = False
         self._time = count()
         
-        return self._dfs(v)
+        return self._dfs(v,
+                process_vertex_early,
+                process_vertex_late,
+                process_edge)
 
-    def _dfs(self, v):
+    def _dfs(self, v,
+            process_vertex_early,
+            process_vertex_late,
+            process_edge):
 
         if self._finished:
             return
@@ -134,20 +162,23 @@ class Graph(object):
         self._discovered[v] = True
         self._entry_time[v] = next(self._time)
 
-        self._process_vertex_early(self, v)
+        process_vertex_early(self, v)
 
         for e in self._adj[v]:
             if not self._discovered[e]:
                 self._parent[e] = v
-                self._process_edge(self, v, e)
-                self._dfs(e)
+                process_edge(self, v, e)
+                self._dfs(e,
+                    process_vertex_early,
+                    process_vertex_late,
+                    process_edge)
             elif not self._processed[e] and self._parent[v]!=e or self._directed:
-                self._process_edge(self, v, e)
+                process_edge(self, v, e)
 
             if self._finished:
                 return
 
-        self._process_vertex_late(self, v)
+        process_vertex_late(self, v)
         self._exit_time[v] = next(self._time)
         self._processed[v] = True
 
@@ -156,9 +187,6 @@ class Graph(object):
         if len(self._adj) < 2:
             return None
 
-        self._process_vertex_early = self._default_process_vertex_early
-        self._process_vertex_late = self._default_process_vertex_late
-        self._process_edge = self._default_process_edge
         if n1 not in self._adj or n2 not in self._adj:
             raise KeyError
         self.bfs(n1)
@@ -174,38 +202,34 @@ class Graph(object):
 
         return list(reversed(path))
 
+    def label_connected(self):
+        """Label connected vertex of the graph with the same integer
+        Returns:
+            (dict): {vertex1: label, vertex2: label, ....}
+        """
+        assert not self._directed
+        labels = {k: None for k, v in self._adj.items()}
+        label = count(1)
+
+        for v in self._adj.keys():
+            if not labels[v]:
+                self.bfs(v)
+                next_label = next(label)
+            else:
+                continue
+
+            self._parent[v] = 1 # Root node parent is allways None
+            for k, v in self._parent.items():
+                if self._parent[k] is not None:
+                    labels[k] = next_label
+ 
+        return labels
+
     def __str__(self):
         return '{}({})'.format(self.__class__.__name__, dict(self._adj))
 
     def __repr__(self):
         return '{}({}, directed={})'.format(self.__class__.__name__, self.edges(), self._directed)
-
-
-def read_num():
-    return int(sys.stdin.readline())
-
-def load_locations(nlocations):
-    locations = [sys.stdin.readline().rstrip() for _ in range(nlocations)]
-    return {loc:num for num, loc in enumerate(locations)}
-
-def load_routes(nroutes, loc_table): 
-    routes = [sys.stdin.readline().rstrip().split() for _ in range(nroutes)]
-    return [(loc_table[start], loc_table[end]) for start, end in routes]
-
-def load_map():
-    nlocations = read_num()
-    if nlocations == 0:
-        return None, None
-    locations = load_locations(nlocations)
-
-    #
-    routes = load_routes(read_num(), locations)    
-    g = GraphAV()
-    g.add_edges(routes)
-    return g, {num: loc for loc, num in locations.items()}
-
-def edge_class():
-    pass
 
 
 
@@ -230,7 +254,6 @@ class GraphAV(Graph):
         if not parent_root:
             if self._reachable_ancestor[v] == self._parent[v]:
                 self._articulation_points.add(self._parent[v])
-
             if self._reachable_ancestor[v] == v:
                 self._articulation_points.add(self._parent[v])
 
@@ -246,7 +269,7 @@ class GraphAV(Graph):
 
     @staticmethod
     def _av_process_edge(self, v, e):
-        
+       
         edge_class = self._av_edge_class(v, e)
 
         if edge_class == "tree":
@@ -263,31 +286,85 @@ class GraphAV(Graph):
         if self._processed[e] and (self._entry_time[e]<self._entry_time[v]): return "cross"
 
     def find_articulation(self):
-        """Find articulation points"""
-        if len(self._adj) < 3 or not self.is_connected():
+        """Split graph into connected subgraphs, and then find articulation points
+        with in each one."""
+        if len(self._adj) < 3:
             return []
 
-        self._process_vertex_early = self._av_process_vertex_early
-        self._process_vertex_late = self._av_process_vertex_late
-        self._process_edge = self._av_process_edge
+        # Label each connected subgraph
+        labels = self.label_connected()
+
+
+        
+        av = []
+        seen_labels = set()
+        for v, label in labels.items():
+            if label is None or label in seen_labels:
+                continue
+
+            av += self._find_articulations(v)
+        
+        # Discard repeated vertices
+        return list(set(av))
+
+    def _find_articulations(self, v):
         self._reachable_ancestor = defaultdict(lambda: None)
         self._tree_out_degree = defaultdict(int)
         self._articulation_points = set()
-
-        start = next(iter(self._adj.keys()))
-        self.dfs(start)
+        
+        self.dfs(v,
+            self._av_process_vertex_early,
+            self._av_process_vertex_late,
+            self._av_process_edge)
         
         return list(self._articulation_points)
+
+
+ 
+
+def read_num():
+    return int(sys.stdin.readline())
+
+def load_locations(nlocations):
+    locations = [sys.stdin.readline().rstrip() for _ in range(nlocations)]
+    return {loc:num for num, loc in enumerate(locations)}
+
+def load_routes(nroutes, loc_table): 
+    routes = [sys.stdin.readline().rstrip().split() for _ in range(nroutes)]
+    return [(loc_table[start], loc_table[end]) for start, end in routes]
+
+def load_map():
+    nlocations = read_num()
+    if nlocations == 0:
+        return None, None
+    locations = load_locations(nlocations)
+
+    #
+    routes = load_routes(read_num(), locations)    
+    g = GraphAV()
+    g.add_edges(routes)
+    return g, {num: loc for loc, num in locations.items()}
+
 
 if  __name__ == '__main__':
 
 
-    for n in range(1, 9999999):
+    results = []
+    while True:
         graph, locations = load_map()
         if not graph:
             break
-        
+
         art = graph.find_articulation()
-        print('City map #{}: {} camera(s) found'.format(n, len(art)))
-        [print(a) for a in sorted(locations[a] for a in art)]
-        print('')
+        results.append([a for a in sorted(locations[a] for a in art)])
+
+
+    for n, r in enumerate(results):
+    
+        print('City map #{}: {} camera(s) found'.format(n+1, len(r)))
+        if len(r) > 0:
+            [print(a) for a in r]
+
+        if n+1<len(results):
+            print('')
+

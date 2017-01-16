@@ -1,16 +1,11 @@
 import sys
 from itertools import count
 from collections import defaultdict, deque
-import enum
 
-
-class VStatus(enum.IntEnum):
-    Undiscovered = 0
-    Discovered = 1,
-    Processed = 2
 
 
 class Graph(object):
+    """Graph implementation based on S.Skiena"""
 
     def __init__(self, edges=None, directed=False):
         self._adj = defaultdict(set)
@@ -286,15 +281,9 @@ class GraphAV(Graph):
         if self._processed[e] and (self._entry_time[e]<self._entry_time[v]): return "cross"
 
     def find_articulation(self):
-        """Split graph into connected subgraphs, and then find articulation points
-        with in each one."""
-        if len(self._adj) < 3:
-            return []
-
-        # Label each connected subgraph
+        """Split graph into connected subgraphs, and then find articulation vertices
+        within each one."""
         labels = self.label_connected()
-
-
         
         av = []
         seen_labels = set()
@@ -348,7 +337,6 @@ def load_map():
 
 if  __name__ == '__main__':
 
-
     results = []
     while True:
         graph, locations = load_map()
@@ -357,7 +345,6 @@ if  __name__ == '__main__':
 
         art = graph.find_articulation()
         results.append([a for a in sorted(locations[a] for a in art)])
-
 
     for n, r in enumerate(results):
     

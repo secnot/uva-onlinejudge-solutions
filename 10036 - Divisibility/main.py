@@ -1,12 +1,15 @@
 import sys
 
+
 def load_num():
     return list(map(int, sys.stdin.readline().split()))
+
 
 def load_case():
     _, divisor = load_num()
     numbers = load_num()
     return numbers, divisor
+
 
 def is_divisible(num, k):
     n = len(num)
@@ -22,8 +25,12 @@ def is_divisible(num, k):
 
     return rem[n-1][0]
 
-if __name__ == '__main__':    
-    for c in range(load_num()[0]):
+
+if __name__ == '__main__':
+    
+    ncases = load_num()[0]
+
+    for c in range(ncases):
         if is_divisible(*load_case()):
             print('Divisible')
         else:

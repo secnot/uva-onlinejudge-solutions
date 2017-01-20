@@ -38,3 +38,5 @@ is *d<sub>ij</sub> = |s<sub>i</sub> − s<sub>j</sub> |*.
 2
 4
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10041.pdf)

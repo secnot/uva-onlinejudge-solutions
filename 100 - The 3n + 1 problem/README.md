@@ -31,7 +31,7 @@ For any two numbers i and j you are to determine the maximum cycle length over a
 between and **including both** i and j.
 
 
-# Input
+## Input
 
 The input will consist of a series of pairs of integers i and j, one pair of integers per line. All integers
 will be less than 10,000 and greater than 0.
@@ -40,7 +40,7 @@ all integers between and including i and j.
 You can assume that no operation overflows a 32-bit integer.
 
 
-# Output
+## Output
 
 For each pair of input integers i and j you should output i, j, and the maximum cycle length for
 integers between and including i and j. These three numbers should be separated by at least one space
@@ -49,7 +49,7 @@ and j must appear in the output in the same order in which they appeared in the 
 followed by the maximum cycle length (on the same line).
 
 
-# Sample Input
+## Sample Input
 
 ```bash
 1 10
@@ -59,7 +59,7 @@ followed by the maximum cycle length (on the same line).
 ```
 
 
-# Sample Output
+## Sample Output
 
 ```bash
 1 10 20

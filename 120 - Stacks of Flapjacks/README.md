@@ -39,6 +39,7 @@ pancakes and each pancake will have an integer diameter between 1 and 100. The i
 by end-of-file. Each stack is given as a single line of input with the top pancake on a stack appearing
 first on a line, the bottom pancake appearing last, and all pancakes separated by a space.
 
+
 ## Output
 
 For each stack of pancakes, the output should echo the original stack on one line, followed by some

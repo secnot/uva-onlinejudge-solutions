@@ -3,10 +3,10 @@
 In many newspapers we may find some puzzles to solve, one of those is Su Doku. Given a grid 9 × 9
 with some of entries filled, the objective is to fill in the grid so that every row, every column, and every
 3 × 3 box contains the digits 1 through 9.
-source: http://www.sudoku.com
 
 ![sudoku example](docs/sudoku.png)
 
+ [source](http://www.sudoku.com)
 
 ## Input
 

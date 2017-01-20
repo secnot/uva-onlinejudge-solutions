@@ -42,3 +42,5 @@ space. If multiple solutions are possible, print the first lexicographically.
 ```bash
 2 1 3 4
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10026.pdf)  

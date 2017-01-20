@@ -51,3 +51,5 @@ now is the time for all good men to come to the aid of the party
 the quick brown fox jumps over the lazy dog
 programming contests are fun arent they
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/8/850.pdf)

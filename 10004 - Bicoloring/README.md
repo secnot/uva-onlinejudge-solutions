@@ -54,3 +54,5 @@ NOT BICOLORABLE.
 BICOLORABLE.
 BICOLORABLE.
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10004.pdf)

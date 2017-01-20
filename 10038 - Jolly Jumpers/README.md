@@ -35,3 +35,5 @@ For each line of input, generate a line of output saying ‘Jolly’ or ‘Not j
 Jolly
 Not jolly
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10038.pdf) 

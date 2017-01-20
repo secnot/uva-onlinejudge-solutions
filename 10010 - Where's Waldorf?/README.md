@@ -66,3 +66,5 @@ Dagbert
 1 2
 7 8
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10010.pdf)

@@ -61,3 +61,5 @@ If the target configuration is not reachable then print ‘-1’.
 14
 -1
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10067.pdf)

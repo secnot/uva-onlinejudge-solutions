@@ -44,3 +44,5 @@ lines that can connect all the freckles.
 ```bash
 3.41
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10034.pdf)  

@@ -52,3 +52,5 @@ to *N*) for each of the members of team *i*.
 1 2 3 4 5
 0
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/102/10249.pdf)

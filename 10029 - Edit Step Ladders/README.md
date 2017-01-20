@@ -39,3 +39,5 @@ wine
 ```bash
 5
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10029.pdf) 

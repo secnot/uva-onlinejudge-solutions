@@ -33,3 +33,5 @@ No carry operation.
 3 carry operations.
 1 carry operation.
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10035.pdf)  

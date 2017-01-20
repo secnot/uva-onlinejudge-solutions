@@ -42,3 +42,5 @@ xxxx yyy zzzz www yyyy aaa bbbb ccc dddddd
 dick and jane and puff and spot and yertle
 **** *** **** *** **** *** **** *** ******
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/8/843.pdf)

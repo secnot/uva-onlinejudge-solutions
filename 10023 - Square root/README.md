@@ -31,3 +31,5 @@ Print a blank line between the outputs for two consecutive test cases.
 ```bash
 2684512
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10023.pdf)  

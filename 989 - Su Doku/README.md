@@ -51,3 +51,5 @@ you should consider lines in first place. Print a blank line between test cases.
 3 1 7 2 4 6 9 8 5
 6 4 2 5 9 8 1 7 3
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/9/989.pdf)

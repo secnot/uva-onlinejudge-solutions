@@ -54,3 +54,5 @@ is divisible by *K* or ‘Not divisible’ if it’s not.
 Divisible
 Not divisible
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10036.pdf)  

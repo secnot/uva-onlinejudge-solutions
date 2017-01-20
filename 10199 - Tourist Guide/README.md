@@ -91,3 +91,5 @@ sugarloaf
 City map #2: 1 camera(s) found
 sambodromo
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/101/10199.pdf)

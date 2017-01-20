@@ -6,7 +6,7 @@ with some of entries filled, the objective is to fill in the grid so that every 
 
 ![sudoku example](docs/sudoku.png)
 
- [source](http://www.sudoku.com)
+ [image source](http://www.sudoku.com)
 
 ## Input
 

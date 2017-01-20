@@ -73,3 +73,5 @@ Case #2
 9 front
 10 top
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10051.pdf)

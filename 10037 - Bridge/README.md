@@ -56,3 +56,5 @@ may cross. If more than one strategy yields the minimal time, any one will do.
 2
 1 2
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10037.pdf)  

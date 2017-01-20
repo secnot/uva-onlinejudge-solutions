@@ -65,3 +65,5 @@ a ‘0’ (indicating no more flips necessary). Once a stack is sorted, no more 
 5 1 2 3 4
 1 2 0
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/1/120.pdf)

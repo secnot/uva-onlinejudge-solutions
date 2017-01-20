@@ -62,3 +62,5 @@ of trips required for this case on a separate line. Print a blank line after the
 Scenario #1
 Minimum Number of Trips = 5
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10099.pdf)

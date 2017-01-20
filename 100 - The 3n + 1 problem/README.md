@@ -68,4 +68,4 @@ followed by the maximum cycle length (on the same line).
 900 1000 174
 ```
 
-[original pdf](https://uva.onlinejudge.org/external/1/100.pdf)  
+[\[original\]](https://uva.onlinejudge.org/external/1/100.pdf)  

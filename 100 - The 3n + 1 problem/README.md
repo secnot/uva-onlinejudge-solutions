@@ -67,3 +67,5 @@ followed by the maximum cycle length (on the same line).
 201 210 89
 900 1000 174
 ```
+
+[original pdf](https://uva.onlinejudge.org/external/1/100.pdf)  

@@ -77,3 +77,5 @@ Sir Lancelot
 Richard M. Nixon
 Yertle
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/101/10152.pdf)

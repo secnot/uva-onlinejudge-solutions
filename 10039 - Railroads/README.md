@@ -84,3 +84,5 @@ Arrival 1411 Darmstadt
 Scenario 2
 No connection
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10039.pdf)

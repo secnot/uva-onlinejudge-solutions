@@ -64,3 +64,5 @@ including the *halt* instruction. You may assume that the program does halt.
 ```
 16
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10033.pdf)  

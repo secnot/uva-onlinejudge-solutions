@@ -65,3 +65,5 @@ Case #2
 4 2
 2 2
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10054.pdf)

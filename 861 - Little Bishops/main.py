@@ -2,8 +2,6 @@ import sys
 
 
 
-
-
 def load_case():
     return list(map(int, sys.stdin.readline().split()))
 
@@ -37,8 +35,12 @@ class Board(object):
         self._mod_diagonals(k, -1)
         self._board[k] = 0
 
-    def _build_candidates(self, k):
-        return [i for i in  range(k, self._n*self._n) if not self._board[i]]
+    def _next_candidate(self, k):
+        for i in range(k, self._n*self._n):
+            if not self._board[i]:
+                return i
+
+        return None
     
     def _is_solved(self):
         return len(self._moves) >= self._b
@@ -48,11 +50,12 @@ class Board(object):
             self._solutions_found += 1
             return
 
-        candidates = self._build_candidates(k)
-        for c in candidates:
-            self._make_move(c)
-            self._count_solutions(c+1)
+        nxt = self._next_candidate(k)
+        while nxt is not None:
+            self._make_move(nxt)
+            self._count_solutions(nxt+1)
             self._undo_move()
+            nxt = self._next_candidate(nxt+1)
 
     def solutions(self):
         self._count_solutions()
@@ -63,8 +66,7 @@ if __name__ == '__main__':
     n, k = load_case()    
     while n:
         b = Board(n, k)
-        b.solutions()
-        print(b._solutions_found)
+        print(b.solutions())
         n, k = load_case()
         if not n:
             break

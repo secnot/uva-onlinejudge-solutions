@@ -31,25 +31,20 @@ def manhattan_dist(puzzle):
 def move_up(puzzle):
     pos = puzzle.index(0)
     puzzle[pos], puzzle[pos-4] = puzzle[pos-4], puzzle[pos]
-    return True
 
 def move_down(puzzle):
     pos = puzzle.index(0)
     puzzle[pos], puzzle[pos+4] = puzzle[pos+4], puzzle[pos]
-    return True
 
 def move_left(puzzle):
     pos = puzzle.index(0)
     puzzle[pos], puzzle[pos-1] = puzzle[pos-1], puzzle[pos]
-    return True
 
 def move_right(puzzle):
     pos = puzzle.index(0)
     puzzle[pos], puzzle[pos+1] = puzzle[pos+1], puzzle[pos]
-    return True
 
 def is_solved(puzzle):
-    #return manhattan_dist(puzzle) == 0
     return all(i==j for i, j in zip(puzzle, range(1, 16)))
 
 def load_num():

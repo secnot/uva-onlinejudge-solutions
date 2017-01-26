@@ -10,7 +10,7 @@ nearly equal as possible.
 
 **The input begins with a single positive integer on a line by itself indicating the number
 of the cases following, each of them as described below. This line is followed by a blank
-line, and there is also a blank line between two consecutive inputs.**
+line, and there is also a blank line between two consecutive inputs.**  
 The first line of input contains *n* the number of people at the picnic. *n* lines follow. The first line
 gives the weight of person 1; the second the weight of person 2; and so on. Each weight is an integer
 between 1 and 450. There are at most 100 people at the picnic.

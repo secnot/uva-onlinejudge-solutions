@@ -19,7 +19,7 @@ between 1 and 450. There are at most 100 people at the picnic.
 ## Output
 
 **For each test case, the output must follow the description below. The outputs of two
-consecutive cases will be separated by a blank line.**
+consecutive cases will be separated by a blank line.**  
 Your output will be a single line containing 2 numbers: the total weight of the people on one team,
 and the total weight of the people on the other team. If these numbers differ, give the lesser first.
 
@@ -41,3 +41,4 @@ and the total weight of the people on the other team. If these numbers differ, g
 190 200
 ```
 
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10032.pdf)

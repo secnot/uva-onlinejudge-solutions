@@ -1,6 +1,5 @@
 import sys
 
-
 def load_num():
     return int(sys.stdin.readline().rstrip())
 
@@ -11,20 +10,19 @@ def load_case():
 
 
 def find_split(weights, total_weight):
-    weights = sorted(weights)
-
     reachable = [0 for _ in range(total_weight+1)]
     reachable[0] = 1
 
     # If the bit k of the number stored in reachable[n] is active
     # that means that it is possible to select k out of all the
     # candidates, so the sum of their weight is n..
-    # (Only one half of the table is needed)
+    # WARNING: Bitwise operations are too slow in python but it's still the 
+    # fastest aproach.
     for i, w in enumerate(weights):
-        for j in range(total_weight//2+1, -1, -1):
+        for j in range(total_weight, -1, -1):
             if reachable[j]:
-                reachable[j+w] = reachable[j+w] | (reachable[j]<<1)
-        
+                reachable[j+w] |= (reachable[j]<<1)
+
     # Search nearest value to the perfect split reachable with the sum
     # of half of the weights
     half_weight = 0

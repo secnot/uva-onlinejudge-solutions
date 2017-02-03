@@ -97,10 +97,10 @@ def solve(cache, puzzle, moves=()):
 
 
 # This problem can be solved using a simple BFS search from the starting possition
-# to the solution, the problem is that it is too slow. Too make it faster it uses
-# Meet in the Middle approach, caching all the positions reachable from solution to 
-# a certain depth, and then if uses BFS to find the shortest route from the start 
-# to one of those solutions.
+# to the solution, but it's too slow. Too make it faster it uses Meet in the Middle 
+# approach, caching all the positions reachable from solution to a certain depth, 
+# and then it uses BFS to find the shortest route from the start to any of those 
+# solutions.
 
 if __name__ == '__main__':
     ncases = readnum()[0]

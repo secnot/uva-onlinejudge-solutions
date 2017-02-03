@@ -36,6 +36,8 @@ def is_solved(puzzle):
     return puzzle==SOLUTION
 
 def generate_candidates(puzzle, moves):
+    # Build the list of puzzle positions reachable from puzzle with one
+    # movement, together with the list of movements to reach them.
     candidates = []
     prev_move = moves[-1] if moves else 0
     
@@ -50,11 +52,8 @@ def generate_candidates(puzzle, moves):
 
     return candidates
 
-
-
-
-
 def store_in_cache(cache, puzzle, moves):
+    # Store a possition and its moves into cache if it't better than the current one
     if puzzle in cache and len(cache[puzzle]) <= len(moves):
         pass
     else:
@@ -75,13 +74,13 @@ def generate_solution_cache(puzzle, depth):
 
     return cache
 
-
 def reverse_moves(moves):
+    # Given a tuple of moves returns the list of movemets with the opposite effect
     return tuple(REVERSE_MOVE_TABLE[m] for m in moves)
 
-
 def solve(cache, puzzle, moves=()):
-    #TODO:  Use BFS to search...........
+    # Use BFS to find the shortest path from the initial puzzle position to one of
+    # the positions in the cache.
     if puzzle in cache:
         return list(moves)+list(reversed(reverse_moves(cache[puzzle])))
 
@@ -96,6 +95,12 @@ def solve(cache, puzzle, moves=()):
 
     return None
 
+
+# This problem can be solved using a simple BFS search from the starting possition
+# to the solution, the problem is that it is too slow. Too make it faster it uses
+# Meet in the Middle approach, caching all the positions reachable from solution to 
+# a certain depth, and then if uses BFS to find the shortest route from the start 
+# to one of those solutions.
 
 if __name__ == '__main__':
     ncases = readnum()[0]

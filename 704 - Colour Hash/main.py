@@ -96,7 +96,7 @@ def solve(cache, puzzle, moves=()):
     return None
 
 
-# This problem can be solved using a simple BFS search from the starting possition
+# This problem can be solved using a simple BFS search from the starting position
 # to the solution, but it's too slow. Too make it faster it uses Meet in the Middle 
 # approach, caching all the positions reachable from solution to a certain depth, 
 # and then it uses BFS to find the shortest route from the start to any of those 

@@ -11,3 +11,4 @@ This repository contains my python solutions to some of the problems.
 * [C++ solutions](https://github.com/ajahuang/UVa)
 * [Go solutions](https://github.com/codingsince1985/UVa)
 * [C solutions](https://github.com/dtompkins/uva-online-judge/)
+* [C++ solutions](https://github.com/goldenpython/Contests)

@@ -67,9 +67,7 @@ def find_sequence(elephants):
         longest.append(seq_nxt[longest[-1]])
 
     # Substitute sequence positions by original elephant numbers
-    elephants = [seq[e][2] for e in longest]
-
-    return elephants
+    return [seq[e][2] for e in longest]
 
 
 if __name__ == '__main__':

@@ -38,7 +38,8 @@ and column dimensions in that order on a line followed by m · n integers where 
 and n is the column dimension. The integers appear in the input in row major order, i.e., the first n
 integers constitute the first row of the matrix, the second n integers constitute the second row and so
 on. The integers on a line will be separated from other integers by one or more spaces. 
-**Note**: integers are not restricted to being positive.
+**Note**: integers are not restricted to being positive.  
+
 There will be one or more matrix specifications in an input file. Input is terminated by end-of-file.  
 For each specification the number of rows will be between 1 and 10 inclusive; the number of columns
 will be between 1 and 100 inclusive. No path’s weight will exceed integer values representable using 30
@@ -51,7 +52,8 @@ Two lines should be output for each matrix specification in the input file, the 
 minimal-weight path, and the second line is the cost of a minimal path. The path consists of a sequence
 of n integers (separated by one or more spaces) representing the rows that constitute the minimal path.
 If there is more than one path of minimal weight the path that is *lexicographically* smallest should be
-output.  
+output. 
+ 
 **Note:** *Lexicographically* means the natural order on sequences induced by the order on their elements.
 
 
@@ -84,3 +86,5 @@ output.
 1 1
 19
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/1/116.pdf)

@@ -34,8 +34,7 @@ def best_path(matrix):
     for c in range(1, ncolumns):
         for r in range(nrows):
 
-            # Cells from previous column from where this cell can be reached 
-            # (wrapping first and last rows)
+            # Cells from where this cell can be reached (wrapping rows)
             top = sp[(nrows+r-1)%nrows][c-1]
             mid = sp[r][c-1]
             bot = sp[(r+1)%nrows][c-1]

@@ -50,6 +50,6 @@ increasing order with a difference of 1.
 Memoization is a technique that is associated with Dynamic Programming. The concept is to cache the result 
 of a function given its parameter so that the calculation will not be repeated; it is simply retrieved, 
 or memo-ed. Most of the time a simple array is used for the cache table, but a hash table or map 
-could also be employed. [\[Algorithmist\]]](http://www.algorithmist.com/index.php/Memoization)  
+could also be employed. [\[Algorithmist\]](http://www.algorithmist.com/index.php/Memoization)  
 
 [10003 - Cutting Sticks](10003%20-%20Cutting Sticks) 

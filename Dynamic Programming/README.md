@@ -2,23 +2,20 @@
 
 Dynamic Programming is an algorithmic paradigm that solves a given complex problem 
 by breaking it into subproblems and stores the results of subproblems to avoid computing 
-the same results again. [Continue reading at GeeksforGeeks.org](http://www.geeksforgeeks.org/dynamic-programming-set-1/)
+the same results again.
+[\[Algorithmist\]](http://www.algorithmist.com/index.php/Dynamic_Programming)
+[\[GeeksforGeeks.\]](http://www.geeksforgeeks.org/dynamic-programming-set-1/)  
 
 
-## MIT Open Courseware (6.006) Introduction to Algorithms (Fall 2011)
+## Videos
 
-[19. Dynamic Programming I: Fibonacci, Shortest Path](https://www.youtube.com/watch?v=OQ5jsbhAv_M)  
-[20. Dynamic Programming II: Text Justification, Blackjack](https://www.youtube.com/watch?v=ENyox7kNKeY)  
-[21. Dynamic Programming III: Parenthesization, Edit Distance, Knapsack](https://www.youtube.com/watch?v=ocZMDMZwhCY)  
-[22. Dynamic Programming IV: Guitar Fingering, Tetris, Super Mario Bros.](https://www.youtube.com/watch?v=tp4_UXaVyx8)  
-
-
-
+[MIT 6.006 Introduction to Algorithms - 19. Dynamic Programming I: Fibonacci, Shortest Path](https://www.youtube.com/watch?v=OQ5jsbhAv_M)  
+[MIT 6.006 Introduction to Algorithms - 20. Dynamic Programming II: Text Justification, Blackjack](https://www.youtube.com/watch?v=ENyox7kNKeY)  
+[MIT 6.006 Introduction to Algorithms - 21. Dynamic Programming III: Parenthesization, Edit Distance, Knapsack](https://www.youtube.com/watch?v=ocZMDMZwhCY)  
+[MIT 6.006 Introduction to Algorithms - 22. Dynamic Programming IV: Guitar Fingering, Tetris, Super Mario Bros.](https://www.youtube.com/watch?v=tp4_UXaVyx8)  
 [Algorithms: Memoization and Dynamic Programming](https://www.youtube.com/watch?v=P8Xa2BitN3I)  
 
 
-
-[StackOverflow; What is difference between memoization and dynamic programming?](http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming)
 
 ## Problems
 
@@ -53,3 +50,10 @@ or memo-ed. Most of the time a simple array is used for the cache table, but a h
 could also be employed. [\[Algorithmist\]](http://www.algorithmist.com/index.php/Memoization)  
 
 [10003 - Cutting Sticks](10003%20-%20Cutting Sticks) 
+
+
+
+## References
+
+[StackOverflow; What is difference between memoization and dynamic programming?](http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming)
+

@@ -1,5 +1,9 @@
 # Dynamic Programming
 
+Dynamic Programming is an algorithmic paradigm that solves a given complex problem 
+by breaking it into subproblems and stores the results of subproblems to avoid computing 
+the same results again. [Continue reading at GeeksforGeeks.org](http://www.geeksforgeeks.org/dynamic-programming-set-1/)
+
 
 ## MIT Open Courseware (6.006) Introduction to Algorithms (Fall 2011)
 
@@ -9,6 +13,13 @@
 [22. Dynamic Programming IV: Guitar Fingering, Tetris, Super Mario Bros.](https://www.youtube.com/watch?v=tp4_UXaVyx8)  
 
 
+
+[Algorithms: Memoization and Dynamic Programming](https://www.youtube.com/watch?v=P8Xa2BitN3I)  
+
+
+
+[StackOverflow; What is difference between memoization and dynamic programming?](http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming)
+
 ## Problems
 
 ### Longest Increasing Subsequence (LIS)
@@ -16,6 +27,7 @@
 The Longest Increasing Subsequence problem is to find a subsequence of a given sequence 
 in which all the subsequence's elements are in sorted order.
 [\[Wikipedia\]](https://en.wikipedia.org/wiki/Longest_increasing_subsequence)
+[\[Algorithmist\]](http://www.algorithmist.com/index.php/Longest_Increasing_Subsequence)
 [\[GeeksforGeeks\]](http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/)  
 
 [10154 - Weights and Measures](10154%20-%20Weights%20and%20Measures)  
@@ -31,4 +43,13 @@ increasing order with a difference of 1.
 [\[Youtube\]](https://www.youtube.com/watch?v=lBRtnuxg-gU)  
 
 [116 - Unidirectional TSP](116%20-%20Unidirectional%20TSP)
- 
+
+
+### Recursion with Memoization
+
+Memoization is a technique that is associated with Dynamic Programming. The concept is to cache the result 
+of a function given its parameter so that the calculation will not be repeated; it is simply retrieved, 
+or memo-ed. Most of the time a simple array is used for the cache table, but a hash table or map 
+could also be employed. [\[Algorithmist\]]](http://www.algorithmist.com/index.php/Memoization)  
+
+[10003 - Cutting Sticks](10003%20-%20Cutting Sticks) 

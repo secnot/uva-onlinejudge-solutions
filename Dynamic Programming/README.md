@@ -29,6 +29,7 @@ in which all the subsequence's elements are in sorted order.
 
 [10154 - Weights and Measures](10154%20-%20Weights%20and%20Measures)  
 [10131 - Is Bigger Smarter?](10131%20-%20Is%20Bigger%20Smarter%3F)  
+[10261 - Ferry Loading](10261%20-%20Ferry%20Loading)
 
 
 ### Find the longest path in a matrix with contrains

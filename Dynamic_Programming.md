@@ -27,9 +27,9 @@ in which all the subsequence's elements are in sorted order.
 [\[Algorithmist\]](http://www.algorithmist.com/index.php/Longest_Increasing_Subsequence)
 [\[GeeksforGeeks\]](http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/)  
 
-[10154 - Weights and Measures](10154%20-%20Weights%20and%20Measures)  
-[10131 - Is Bigger Smarter?](10131%20-%20Is%20Bigger%20Smarter%3F)  
-[10261 - Ferry Loading](10261%20-%20Ferry%20Loading)
+[10154 - Weights and Measures](problems/10154%20-%20Weights%20and%20Measures)  
+[10131 - Is Bigger Smarter?](problems/10131%20-%20Is%20Bigger%20Smarter%3F)  
+[10261 - Ferry Loading](problems/10261%20-%20Ferry%20Loading)
 
 
 ### Find the longest path in a matrix with contrains
@@ -40,7 +40,18 @@ increasing order with a difference of 1.
 [\[GeeksforGeeks\]](http://www.geeksforgeeks.org/find-the-longest-path-in-a-matrix-with-given-constraints/)
 [\[Youtube\]](https://www.youtube.com/watch?v=lBRtnuxg-gU)  
 
-[116 - Unidirectional TSP](116%20-%20Unidirectional%20TSP)
+[116 - Unidirectional TSP](problems/116%20-%20Unidirectional%20TSP)
+
+
+### Longest Common Subsequence
+
+The longest common subsequence (LCS) problem is the problem of finding the longest subsequence common to all 
+sequences in a set of sequences (often just two sequences). It differs from problems of finding common substrings: 
+unlike substrings, subsequences are not required to occupy consecutive positions within the original sequences
+[\[Algorithmist\]](http://www.algorithmist.com/index.php/Longest_Common_Subsequence)
+[\[Wikipedia\]](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem)  
+
+[10069 - Distinct Subsequences](problems/10069%20-%20Distinct%20Subsequences)  
 
 
 ### Recursion with Memoization
@@ -50,7 +61,7 @@ of a function given its parameter so that the calculation will not be repeated; 
 or memo-ed. Most of the time a simple array is used for the cache table, but a hash table or map 
 could also be employed. [\[Algorithmist\]](http://www.algorithmist.com/index.php/Memoization)  
 
-[10003 - Cutting Sticks](10003%20-%20Cutting Sticks) 
+[10003 - Cutting Sticks](problems/10003%20-%20Cutting Sticks) 
 
 
 

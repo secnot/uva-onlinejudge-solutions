@@ -6,14 +6,6 @@ problems hosted by University of Valladolid.
 This repository contains my python solutions to some of the problems.
 
 
-## Algorithms
-
-[Mit Open Courseware: Introduction to Algorithms 6.006](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)  
-[Algorithmist.com](http://www.algorithmist.com/)  
-[Top 10 algorithms and data Structures for Competitive Programming](http://www.geeksforgeeks.org/top-algorithms-and-data-structures-for-competitive-programming/)  
-[Top 10 algorithms in interview questions](http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/)  
-
-
 ## Books
 
 ### Beginner
@@ -28,13 +20,9 @@ continue with any of the intermediate ones
 
 If you have already studied the subject and want to refresh or deepen your knowledge, these are your books 
 
-[Algorithms - Sedgewick Robert, Wayne Kevin](https://www.amazon.com/Algorithms-Sedgewick-Robert/dp/032157351X)
+[Algorithms - Sedgewick Robert, Wayne Kevin](https://www.amazon.com/Algorithms-Sedgewick-Robert/dp/032157351X) (Java source code)
 
-Java source code
-
-[Algorithm Design Manual - Skiena Steven S.](https://www.amazon.com/dp/1849967202)
-
-C source code
+[Algorithm Design Manual - Skiena Steven S.](https://www.amazon.com/dp/1849967202) (C source code)
 
 
 ### Advanced
@@ -45,6 +33,17 @@ too dry to use them as a textbook.
 [Introduction to Algorithms - Cormen, Leiserson, Rivest, & Stein](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press)
 
 [The Art of Computer Programming - Donald E. Knuth](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043)
+
+
+## Websites
+
+Some websites with a lot of useful algorithm resources:
+
+- [Algorithmist.com](http://www.algorithmist.com/)  
+- [GeeksforGeeks.org](http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/) 
+- [UVa Online Judge](https://uva.onlinejudge.org)
+
+
 
 
 ## Videos 

@@ -7,6 +7,50 @@ the same results again.
 [\[GeeksforGeeks.\]](http://www.geeksforgeeks.org/dynamic-programming-set-1/)  
 
 
+The classical example on a problem that's best solved using Dynamic Programming is 
+Fibonnaci, this is the naive recursize implementation:
+
+```python
+def fibonacci(n):
+	if n==0: return 0
+	elif n==1: return 1
+	else: return fibonacci(n-1)+fibonacci(n-2)
+
+```
+
+In my laptop **fibonacci(38)** took 42 seconds to compute. Now if we use Dynamic Programming and 
+store the intermediate results we have:
+
+```python
+def fibonacci(n, mem={}):
+    if n in m:
+        return mem[n]
+    
+    if n==0: fib = 0
+    elif n==1: fib = 1
+    else: fib = fibonacci(n-1)+fibonacci(n-2)
+
+    mem[n]=fib
+    return fib
+
+```
+
+Which computed **fibonacci(38)** in 0.096 seconds more than fast enough in most cases, but sometimes
+python's recursion depth limit makes a iterative solution the only alternative:
+
+```python
+def fibonacci(n):
+	mem = [0 for _ in range(n+1)]
+	mem[1] = 1
+	for i in range(2, n+1):
+		mem[i] = mem[i-1]+mem[i-2]
+
+	return mem[n]
+```
+
+With this approach **fibonacci(30000)** took 0.190 seconds to compute.
+
+
 ## Videos
 
 [MIT 6.006 Introduction to Algorithms - 19. Dynamic Programming I: Fibonacci, Shortest Path](https://www.youtube.com/watch?v=OQ5jsbhAv_M)  

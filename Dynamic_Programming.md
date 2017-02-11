@@ -8,7 +8,7 @@ the same results again.
 
 
 The classical example on a problem that's best solved using Dynamic Programming is 
-Fibonnaci, this is the naive recursize implementation:
+Fibonnaci, this is the naive recursive implementation:
 
 ```python
 def fibonacci(n):
@@ -36,7 +36,7 @@ def fibonacci(n, mem={}):
 ```
 
 Which computed **fibonacci(38)** in 0.096 seconds more than fast enough in most cases, but sometimes
-python's recursion depth limit makes a iterative solution the only alternative:
+python's recursion depth limit makes an iterative solution the only alternative:
 
 ```python
 def fibonacci(n):
@@ -48,17 +48,23 @@ def fibonacci(n):
 	return mem[n]
 ```
 
-With this approach **fibonacci(30000)** took 0.190 seconds to compute.
+With this approach **fibonacci(30000)** took 0.190 seconds to compute.  
+
+
+The only way to learn how to apply dynnamic progamming is to see how the process work with a few examples, 
+and solve problems until it clicks. I recommend the videos below as a starting point.
 
 
 ## Videos
 
-[MIT 6.006 Introduction to Algorithms - 19. Dynamic Programming I: Fibonacci, Shortest Path](https://www.youtube.com/watch?v=OQ5jsbhAv_M)  
-[MIT 6.006 Introduction to Algorithms - 20. Dynamic Programming II: Text Justification, Blackjack](https://www.youtube.com/watch?v=ENyox7kNKeY)  
-[MIT 6.006 Introduction to Algorithms - 21. Dynamic Programming III: Parenthesization, Edit Distance, Knapsack](https://www.youtube.com/watch?v=ocZMDMZwhCY)  
-[MIT 6.006 Introduction to Algorithms - 22. Dynamic Programming IV: Guitar Fingering, Tetris, Super Mario Bros.](https://www.youtube.com/watch?v=tp4_UXaVyx8)  
-[Algorithms: Memoization and Dynamic Programming](https://www.youtube.com/watch?v=P8Xa2BitN3I)  
-
+- [ ] [Algorithms: Memoization and Dynamic Programming](https://www.youtube.com/watch?v=P8Xa2BitN3I)  
+- [ ] [MIT 6.006: Introduction to Algorithms - 19. Dynamic Programming I: Fibonacci, Shortest Path](https://www.youtube.com/watch?v=OQ5jsbhAv_M)  
+- [ ] [MIT 6.006: Introduction to Algorithms - 20. Dynamic Programming II: Text Justification, Blackjack](https://www.youtube.com/watch?v=ENyox7kNKeY)  
+- [ ] [MIT 6.006: Introduction to Algorithms - 21. Dynamic Programming III: Parenthesization, Edit Distance, Knapsack](https://www.youtube.com/watch?v=ocZMDMZwhCY)  
+- [ ] [MIT 6.006: Introduction to Algorithms - 22. Dynamic Programming IV: Guitar Fingering, Tetris, Super Mario Bros.](https://www.youtube.com/watch?v=tp4_UXaVyx8)  
+- [ ] [MIT 6.046: Dynamic Programming & Advanced DP](https://www.youtube.com/watch?v=Tw1k46ywN6E&index=14&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp)
+- [ ] [MIT 6.046: Dynamic Programming: All-Pairs Shortest Paths](https://www.youtube.com/watch?v=NzgFUwOaoIw&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp&index=15)
+- [ ] [MIT 6.046: Dynamic Programming (student recitation)](https://www.youtube.com/watch?v=krZI60lKPek&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp&index=12)
 
 
 ## Problems
@@ -109,7 +115,9 @@ could also be employed. [\[Algorithmist\]](http://www.algorithmist.com/index.php
 
 
 
-## References
+## More
 
-[StackOverflow; What is difference between memoization and dynamic programming?](http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming)
+- [Quorra: How can one start solving Dynamic Programming problems](https://www.quora.com/How-can-one-start-solving-Dynamic-Programming-problems)
+- [GeeksforGeeks: Dynamic Programming](http://www.geeksforgeeks.org/fundamentals-of-algorithms/#DynamicProgramming)
+- [StackOverflow; What is difference between memoization and dynamic programming?](http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming)
 

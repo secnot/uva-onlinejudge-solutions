@@ -10,19 +10,19 @@ This repository contains my python solutions to some of the problems.
 
 ### Beginner
 
-[Grokking Algorithms - Aditya Y. Bhargava](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844)
+For the total beginner I have only found one book, it has very visual and light-hearted approach to 
+teaching algorithms with a lot of ilustrations and explanations, it isn't as complete as the other 
+ones but it is a great start.
 
-A very visual approach to teaching algorithms with a lot of ilustrations and explanations, and as a bonus all the code is in python. Once you have mastered this book you can
-continue with any of the intermediate ones
+- [Grokking Algorithms - Aditya Y. Bhargava](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230) (Python examples)
 
 
 ### Intermediate
 
 If you have already studied the subject and want to refresh or deepen your knowledge, these are your books 
 
-[Algorithms - Sedgewick Robert, Wayne Kevin](https://www.amazon.com/Algorithms-Sedgewick-Robert/dp/032157351X) (Java source code)
-
-[Algorithm Design Manual - Skiena Steven S.](https://www.amazon.com/dp/1849967202) (C source code)
+- [Algorithms - Sedgewick Robert, Wayne Kevin](https://www.amazon.com/Algorithms-Sedgewick-Robert/dp/032157351X) (Java examples)
+- [Algorithm Design Manual - Skiena Steven S.](https://www.amazon.com/dp/1849967202) (C examples)
 
 
 ### Advanced
@@ -30,9 +30,8 @@ If you have already studied the subject and want to refresh or deepen your knowl
 These are more of a reference than a textbook, a great resource once you have mastered the subject but
 too dry to use them as a textbook.
 
-[Introduction to Algorithms - Cormen, Leiserson, Rivest, & Stein](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press)
-
-[The Art of Computer Programming - Donald E. Knuth](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043)
+- [Introduction to Algorithms - Cormen, Leiserson, Rivest, & Stein](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press)
+- [The Art of Computer Programming - Donald E. Knuth](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043)
 
 
 ## Websites
@@ -41,9 +40,8 @@ Some websites with a lot of useful algorithm resources:
 
 - [Algorithmist.com](http://www.algorithmist.com/)  
 - [GeeksforGeeks.org](http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/) 
+- [github: google-interview-university](https://github.com/jwasham/google-interview-university)
 - [UVa Online Judge](https://uva.onlinejudge.org)
-
-
 
 
 ## Videos 

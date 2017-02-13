@@ -1,23 +1,27 @@
 # Data Structures
 
+- [ ] [Wikibook: Data Structures ](https://en.wikibooks.org/wiki/Data_Structures)
+- [ ] [Data structures course (43 videos)](https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P) (C code)
+- [ ] [UC Berkeley 61B (Spring 2014): Data Structures (25 videos)](https://www.youtube.com/watch?v=mFPmKGIrQs4&list=PL-XXv-cvA_iAlnI-BQr9hjqADPBtujFJd) (Jaca)
+
 
 ## Linked Lists
 
 - [Wikipedia: Linked list](https://en.wikipedia.org/wiki/Linked_list)
 - [Wikipedia: Doubly liked list](https://en.wikipedia.org/wiki/Doubly_linked_list)
-- [A python implementation of a double linked list (code)](code/llist.py)
 - [Coursera: Singly-Linked List (video)](https://www.coursera.org/learn/data-structures/lecture/kHhgK/singly-linked-lists)
 - [Coursera: Doubly-Linked List (video)](https://www.coursera.org/learn/data-structures/lecture/jpGKD/doubly-linked-lists)
 - [Python: Singly Linked Lists (video)](https://www.youtube.com/watch?v=Ast5sKQXxEU)
+- [A python implementation of a doubly linked list (code)](code/llist.py)
 
 
 ## Stacks (LIFO)
 
-[What is a Stack (video)](https://www.youtube.com/watch?v=FNZ5o9S9prU)
-[Stacks and Queues](https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues)
+- [What is a Stack (video)](https://www.youtube.com/watch?v=FNZ5o9S9prU)
+- [Stacks and Queues](https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues)
 
 
-In python stacks can be easily implemente using lists:
+In python stacks can be implemented using a lists:
 
 ```python
 stack = []
@@ -36,10 +40,13 @@ stack.pop() # returns 2
 stack.pop() # returns 6
 ```
 
-# Queues (FIFO)
+## Queues (FIFO)
 
-For Queues python has [deque](https://docs.python.org/2/library/collections.html#collections.deque) 
-from **collections** module:
+- [Data Structures: Array Implementation of a Queue (video)](https://www.youtube.com/watch?v=okr-XE8yTO8)
+- [Data Structures: Linked List implementation of a Queue (video] (https://www.youtube.com/watch?v=A5_XdiK4J8A)
+ 
+You can implemnent your own Queues but python standard library has [deque](https://docs.python.org/3/library/collections.html#collections.deque) 
+from **collections** module, that makes the job much easier:
 
 ```python
 from collections import deque
@@ -63,6 +70,8 @@ q.popleft() # returns 7
 - [MIT 6.006: 8. Hashing with Chaining (video)](https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8)
 - [MIT 6.006: 9. Table Doubling, Karp-Rabin (video)](https://www.youtube.com/watch?v=BRO7mVIFt08&index=9&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb)
 
+In python dictionaries are a builtin type but there are a couple [OrderedDict](https://docs.python.org/3/library/collections.html#collections.OrderedDict), 
+defaultdict
 
 ## Priority Queue
 

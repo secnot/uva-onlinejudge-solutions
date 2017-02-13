@@ -5,7 +5,7 @@
 
 - [Wikipedia: Linked list](https://en.wikipedia.org/wiki/Linked_list)
 - [Wikipedia: Doubly liked list](https://en.wikipedia.org/wiki/Doubly_linked_list)
-- [A python implementation of a double linked list](code/llist.py)
+- [A python implementation of a double linked list (code)](code/llist.py)
 - [Coursera: Singly-Linked List (video)](https://www.coursera.org/learn/data-structures/lecture/kHhgK/singly-linked-lists)
 - [Coursera: Doubly-Linked List (video)](https://www.coursera.org/learn/data-structures/lecture/jpGKD/doubly-linked-lists)
 - [Python: Singly Linked Lists (video)](https://www.youtube.com/watch?v=Ast5sKQXxEU)
@@ -58,10 +58,11 @@ q.popleft() # returns 7
 ```
 
 ## Dictionaries
-[Introduction to Hash Tables (video)](https://www.youtube.com/watch?v=MfhjkfocRR0)
-[MIT 6.006: 8. Hashing with Chaining (video)](https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8)
-[MIT 6.006: 9. Table Doubling, Karp-Rabin (video)](https://www.youtube.com/watch?v=BRO7mVIFt08&index=9&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb)
-Dictionaries are built in 
+
+- [Introduction to Hash Tables (video)](https://www.youtube.com/watch?v=MfhjkfocRR0)
+- [MIT 6.006: 8. Hashing with Chaining (video)](https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8)
+- [MIT 6.006: 9. Table Doubling, Karp-Rabin (video)](https://www.youtube.com/watch?v=BRO7mVIFt08&index=9&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb)
+
 
 ## Priority Queue
 
@@ -75,7 +76,7 @@ Dictionaries are built in
 ## Problems
 
 
-[10010 - Where's Whaldorf?]
-[10038 - Jolly Jumpers]
-[843 - Crypt Kicker]
-[850 - Crypt Kicker II]
+[10010 - Where's Whaldorf?]  
+[10038 - Jolly Jumpers]  
+[843 - Crypt Kicker]  
+[850 - Crypt Kicker II]  

@@ -5,6 +5,17 @@
 - [ ] [UC Berkeley 61B (Spring 2014): Data Structures (25 videos)](https://www.youtube.com/watch?v=mFPmKGIrQs4&list=PL-XXv-cvA_iAlnI-BQr9hjqADPBtujFJd) (Jaca)
 
 
+
+## Arrays/Lists
+
+- [Data Structures: List as abstract data type (video)](https://www.youtube.com/watch?v=HdFG8L1sajw&)
+
+### Problems
+
+[10038 - Jolly Jumpers](code/10038%20-%20Jolly%20Jumpers)
+
+
+
 ## Linked Lists
 
 - [Wikipedia: Linked list](https://en.wikipedia.org/wiki/Linked_list)
@@ -21,7 +32,7 @@
 - [Stacks and Queues](https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues)
 
 
-In python stacks can be implemented using a lists:
+In python stacks can be implemented using lists:
 
 ```python
 stack = []
@@ -40,13 +51,16 @@ stack.pop() # returns 2
 stack.pop() # returns 6
 ```
 
+Much easier than with singly linked lists. [(code)](code/stack.py)
+
+
 ## Queues (FIFO)
 
 - [Data Structures: Array Implementation of a Queue (video)](https://www.youtube.com/watch?v=okr-XE8yTO8)
-- [Data Structures: Linked List implementation of a Queue (video] (https://www.youtube.com/watch?v=A5_XdiK4J8A)
+- [Data Structures: Linked List implementation of a Queue (video)] (https://www.youtube.com/watch?v=A5_XdiK4J8A)
  
-You can implemnent your own Queues but python standard library has [deque](https://docs.python.org/3/library/collections.html#collections.deque) 
-from **collections** module, that makes the job much easier:
+You can implement your own Queues using one of the methods above, but python standard library already has 
+[deque](https://docs.python.org/3/library/collections.html#collections.deque):
 
 ```python
 from collections import deque
@@ -70,8 +84,13 @@ q.popleft() # returns 7
 - [MIT 6.006: 8. Hashing with Chaining (video)](https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8)
 - [MIT 6.006: 9. Table Doubling, Karp-Rabin (video)](https://www.youtube.com/watch?v=BRO7mVIFt08&index=9&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb)
 
-In python dictionaries are a builtin type but there are a couple [OrderedDict](https://docs.python.org/3/library/collections.html#collections.OrderedDict), 
-defaultdict
+Dictionaries are a built-in python type but it has two subclases that sometimes ares useful:
+
+- [OrderedDict](https://pymotw.com/3/collections/ordereddict.html) is a dictionary subclass that remembers the order in which its contents are added.
+[(docs)](https://docs.python.org/3/library/collections.html#collections.OrderedDict)
+- [defaultdict](https://pymotw.com/3/collections/defaultdict.html) lets the caller specify the default up front when the container is initialized.
+[(docs)](https://docs.python.org/3/library/collections.html#collections.defaultdict)
+
 
 ## Priority Queue
 
@@ -86,6 +105,5 @@ defaultdict
 
 
 [10010 - Where's Whaldorf?]  
-[10038 - Jolly Jumpers]  
 [843 - Crypt Kicker]  
 [850 - Crypt Kicker II]  

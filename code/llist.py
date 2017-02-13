@@ -1,3 +1,31 @@
+"""
+    Doubly Linked List
+    ------------------
+    A doubly linked list implementation with iteration and indexing support
+
+    >>> l = LinkedList()
+    >>> l.add_last(7)
+    >>> l.add_first(3)
+    >>> l.first
+    3
+    >>> l.last
+    7
+    >>> l[0]
+    3
+    >>> list(l)
+    [3, 7]
+    >>> l.remove_first()
+    3
+    >>> len(l)
+    1
+    >>> l[0]
+    7
+    >>> l = LinkedList([4, 8, 12])
+    >>> list(l)
+    [4, 8, 12]
+"""
+
+
 class Node(object):
 
     __slots__ = ('data', 'nxt', 'prev')
@@ -7,13 +35,18 @@ class Node(object):
         self.nxt = nxt
         self.prev = prev
 
+
 class LinkedList(object):
 
-    def __init__(self):
+    def __init__(self, initial=None):
         self._head = None
         self._tail = None
         self._length = 0
         self._index = None
+
+        if initial:
+            for d in initial:
+                self.add_last(d)
 
     @property
     def first(self):
@@ -128,7 +161,7 @@ class LinkedList(object):
         if key < 0:
             key = self._length+key
 
-        # Start from head or tail depending of which is closest to key
+        # Start from head or tail depending of which one is the closest to key
         if key//2 <= self._length:
             pt = self._head
             for _ in range(key):
@@ -168,7 +201,10 @@ class LinkedList(object):
 
 
 
+# Run some more Tests
 if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
 
     # Some tests
     l = LinkedList()

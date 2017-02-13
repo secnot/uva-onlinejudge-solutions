@@ -1,37 +1,50 @@
 # Algorithms in Python (With problems and solutions)
 
-[UVa Online Judge](https://uva.onlinejudge.org) is an online automated judge for programming 
-problems hosted by University of Valladolid.
+This repository contains resources I've found useful while refreshing my Algorithms an Data Structures knowledge.
 
-This repository contains my python solutions to some of the problems.
+1. [Introduction](Introduction.md)
+2. [Data Structures](Data_Structures.md)
+3. [Sorting & Searching](Sorting_&_Searching.md)
+4. [Graphs](Graphs.md)
+5. [Combinatorial and Heuristic](Combinatorial_and_Heuristic.md)
+6. [Dynamic Programming](Dynamic_Programming.md)
+7. [Geometry]
+8. [Computational Geometry??]
 
 
 ## Books
 
-### Beginner
+### Algorithms 
 
-For the total beginner I have only found one book, it has very visual and light-hearted approach to 
-teaching algorithms with a lot of ilustrations and explanations, it isn't as complete as the other 
-ones but it is a great start.
+- Beginner *(None or little prior knowledge)*
+	- [Grokking Algorithms - Aditya Y. Bhargava](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230) (Python code)
 
-- [Grokking Algorithms - Aditya Y. Bhargava](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230) (Python examples)
+- Intermediate
+	- [Algorithms - Sedgewick Robert, Wayne Kevin](https://www.amazon.com/Algorithms-Sedgewick-Robert/dp/032157351X) (Java code)
+	- [Algorithm Design Manual - Steven S. Skiena](https://www.amazon.com/dp/1849967202) (C code)
 
-
-### Intermediate
-
-If you have already studied the subject and want to refresh or deepen your knowledge, these are your books 
-
-- [Algorithms - Sedgewick Robert, Wayne Kevin](https://www.amazon.com/Algorithms-Sedgewick-Robert/dp/032157351X) (Java examples)
-- [Algorithm Design Manual - Skiena Steven S.](https://www.amazon.com/dp/1849967202) (C examples)
+- Advanced *(More of reference books than textbooks)*
+	- [Introduction to Algorithms - Cormen, Leiserson, Rivest, & Stein](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844)
+	- [The Art of Computer Programming - Donald E. Knuth](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043)
 
 
-### Advanced
+### Languages 
 
-These are more of a reference than a textbook, a great resource once you have mastered the subject but
-too dry to use them as a textbook.
+- Python
+	- [Learning Python the Hard Way - Zed A. Shaw](https://learnpythonthehardway.org/book/) (Free)
+	- [Problem Solving with Algorithms and Data Structures using Python](https://interactivepython.org/runestone/static/pythonds/index.html) (Free)
+	- [Python Essential Reference - David Beazley](https://www.amazon.com/Python-Essential-Reference-David-Beazley/dp/0672329786) (Great reference...)
 
-- [Introduction to Algorithms - Cormen, Leiserson, Rivest, & Stein](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press)
-- [The Art of Computer Programming - Donald E. Knuth](https://www.amazon.com/Computer-Programming-Volumes-1-4A-Boxed/dp/0321751043)
+- C
+	- [The C Programming Language - Brian W. Kernighan, Dennis M. Ritchie](https://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628)
+	- [Expert C Programming: Deep C Secrets - Peter van der Linden](https://www.amazon.com/Expert-Programming-Peter-van-Linden/dp/0131774298)
+
+- C++
+	- [Accelerated C++ - Andrew Koenig, Barbara E. Moo](https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X)
+	- [Effective C++: 55 Specific Ways to Improve Your Programs and Designs - Scott Meyers](https://www.amazon.com/Effective-Specific-Improve-Programs-Designs/dp/0321334876)
+
+- Go
+	- [The Go Programming Language - Alan A. A. Donovan, Brian W. Kernighan ](https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440)
 
 
 ## Websites
@@ -40,7 +53,8 @@ Some websites with a lot of useful algorithm resources:
 
 - [Algorithmist.com](http://www.algorithmist.com/)  
 - [GeeksforGeeks.org](http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/) 
-- [github: google-interview-university](https://github.com/jwasham/google-interview-university)
+- [Github: An educational library of algorithms in Python](https://github.com/nryoung/algorithms)
+- [Github: google-interview-university](https://github.com/jwasham/google-interview-university)
 - [UVa Online Judge](https://uva.onlinejudge.org)
 
 
@@ -93,12 +107,3 @@ Some websites with a lot of useful algorithm resources:
 - [ ] [Graph Theory by Sarada Herke (67 videos)](https://www.youtube.com/user/DrSaradaHerke/playlists?shelf_id=5&view=50&sort=dd)
 
 
-## Problem solutions
-
-More repositores with solution for UVa online judge problems:
-
-* [C++ solutions](https://github.com/ajahuang/UVa)
-* [Go solutions](https://github.com/codingsince1985/UVa)
-* [C solutions](https://github.com/dtompkins/uva-online-judge/)
-* [C++ solutions](https://github.com/goldenpython/Contests)
-* [C++ solutions](https://github.com/morris821028/UVa)

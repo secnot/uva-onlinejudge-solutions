@@ -1,6 +1,6 @@
 """
-    Minimal linked list implementation of a Stack
-    ---------------------------------------------
+    Linked list implementation of a Stack
+    -------------------------------------
 
     >>> s = Stack()
     >>> s.push(12)
@@ -21,6 +21,10 @@
     6
     >>> list(s)
     [6, 5]
+    >>> s[-1]
+    5
+    >>> s[-2]
+    6
 """
 
 
@@ -60,8 +64,11 @@ class Stack(object):
         return data
 
     def __getitem__(self, key):
-        if key >= self._length:
+        if key >= self._length or key < -self._length:
             raise IndexError("index out of range")
+
+        if key < 0:
+            key = self._length + key
 
         current = self._head
         

@@ -64,3 +64,5 @@ separate line.
 5
 15
 ```
+
+[\[pdf\]](https://uva.onlinejudge.org/external/100/10050.pdf)

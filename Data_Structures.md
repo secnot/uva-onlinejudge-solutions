@@ -2,7 +2,7 @@
 
 - [ ] [Wikibook: Data Structures ](https://en.wikibooks.org/wiki/Data_Structures)
 - [ ] [Data structures course (43 videos)](https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P) (C code)
-- [ ] [UC Berkeley 61B (Spring 2014): Data Structures (25 videos)](https://www.youtube.com/watch?v=mFPmKGIrQs4&list=PL-XXv-cvA_iAlnI-BQr9hjqADPBtujFJd) (Jaca)
+- [ ] [UC Berkeley 61B (Spring 2014): Data Structures (25 videos)](https://www.youtube.com/watch?v=mFPmKGIrQs4&list=PL-XXv-cvA_iAlnI-BQr9hjqADPBtujFJd) (Java)
 
 
 
@@ -10,10 +10,10 @@
 
 - [Data Structures: List as abstract data type (video)](https://www.youtube.com/watch?v=HdFG8L1sajw&)
 
-### Problems
+#### Problems
 
-[10038 - Jolly Jumpers](code/10038%20-%20Jolly%20Jumpers)
-
+[10038 - Jolly Jumpers](problems/10038%20-%20Jolly%20Jumpers)
+[10050 - Hartals](problems/10050%20-%20Hartals)
 
 
 ## Linked Lists
@@ -84,7 +84,7 @@ q.popleft() # returns 7
 - [MIT 6.006: 8. Hashing with Chaining (video)](https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8)
 - [MIT 6.006: 9. Table Doubling, Karp-Rabin (video)](https://www.youtube.com/watch?v=BRO7mVIFt08&index=9&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb)
 
-Dictionaries are a built-in python type but it has two subclases that sometimes ares useful:
+Dictionaries are a built-in python type but it has two less known subclases that sometimes ares useful:
 
 - [OrderedDict](https://pymotw.com/3/collections/ordereddict.html) is a dictionary subclass that remembers the order in which its contents are added.
 [(docs)](https://docs.python.org/3/library/collections.html#collections.OrderedDict)
@@ -103,7 +103,7 @@ Dictionaries are a built-in python type but it has two subclases that sometimes 
 
 ## Problems
 
-
+[10315 - Poker Hands](problems/10315%20-%20Poker%20Hands)
 [10010 - Where's Whaldorf?]  
 [843 - Crypt Kicker]  
 [850 - Crypt Kicker II]  

@@ -12,9 +12,9 @@
 
 #### Problems
 
-[10038 - Jolly Jumpers](problems/10038%20-%20Jolly%20Jumpers)
-[10050 - Hartals](problems/10050%20-%20Hartals)
-
+[10038 - Jolly Jumpers](problems/10038%20-%20Jolly%20Jumpers)  
+[10050 - Hartals](problems/10050%20-%20Hartals)  
+[10205 - Stack 'em Up](problems/10205%20-%20Stack%20'em%20Up)
 
 ## Linked Lists
 
@@ -103,7 +103,7 @@ Dictionaries are a built-in python type but it has two less known subclases that
 
 ## Problems
 
-[10315 - Poker Hands](problems/10315%20-%20Poker%20Hands)
+[10315 - Poker Hands](problems/10315%20-%20Poker%20Hands)  
 [10010 - Where's Whaldorf?]  
-[843 - Crypt Kicker]  
+[843 - Crypt Kicker](problems/843%20-%20Crypt%20Kicker)  
 [850 - Crypt Kicker II]  

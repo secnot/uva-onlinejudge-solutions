@@ -1,10 +1,11 @@
 from sys import stdin
 from collections import Counter
-from operator import itemgetter
 
 CATEGORIES = 13
-first_item = itemgetter(0)
 
+
+#   IO Functions (read cases on stdin)
+#############################################
 
 def readnum():
     return list(map(int, stdin.readline().split()))
@@ -12,6 +13,11 @@ def readnum():
 def readgame():
     return [readnum() for _ in range(13)]
 
+
+
+# Dice rating functions: A bunch of boilerplate
+# to precompute all possible scores for each game
+#################################################
 
 def ones(dices): 
     # 0 -> Sum of all ones thrown
@@ -103,23 +109,32 @@ def full_house(dices):
 RATE_FUNCS = [ones, twos, threes, fours, fives, sixes, chance, three_kind, 
         four_kind, five_kind, short_straight, long_straight, full_house]
 
-SCORE_TABLE = []
-
 def build_score_table(game):
+    """Build a table with the score for all the categories for each round"""
     # Generate point table for all categories for each round
-    global SCORE_TABLE
-    SCORE_TABLE = [[func(round) for func in RATE_FUNCS] for round in game]
+    return [[func(round) for func in RATE_FUNCS] for round in game]
 
 
-def MaxScore(round, free_cat, mem={}):
+
+
+# Search Functions
+# 
+# Find best score using Dynamic Programming, in this case recursion + memoization
+#
+# MaxScore(round0, None) = max(
+#       rating_cat0 in round0 + MaxScore(round1, except cat0),
+#       rating_cat1 in round0 + MaxScore(round1, except cat1),
+#       .....
+#       rating_cat12 in round0 + MaxScore(round1, except cat12))
+#################################################################################
+
+def MaxScore(round, free_cat, prev6score, mem, score_table):
     """
     Arguments:
         round: Current round used for comparisons
         free_cat (list): True if the category if free to use, False already used
-        cat_scores (list): contains score obtained with each category used, and -1
-            for unused categories
-        mem: Memoization dictionary
-        
+        mem (dict): Memoization dictionary
+        score_table(2d array)
     Returns:
         int: bestscore
         int: first_ 6 categories score
@@ -129,60 +144,58 @@ def MaxScore(round, free_cat, mem={}):
     if round==13:
         return 0, 0, 0
 
-    #TODO: cache_key= (round, tuple(free_cat))
-    # Max score and the next categorie used to reach it
+    # Return stored value if available.
     try:
         return mem[round, tuple(free_cat)]
     except KeyError:
         pass
 
-    # Find best score and 
+    # Find best score for the round using the free categories remainig.
     scores = []
     for cat, free in enumerate(free_cat):
         if not free:
             continue
 
         # Score for using this category in this round
-        cat_score = SCORE_TABLE[round][cat]
+        cat_score = score_table[round][cat]
+        current6score = prev6score+cat_score if cat<6 else prev6score
 
         # Best score/category from the remaining categories in the next round
         free_cat[cat]=False 
-        rest_score, first_6_score, _ = MaxScore(round+1, free_cat, mem)
+        rest_score, rest6score, _ = MaxScore(round+1, free_cat, current6score, mem, score_table) 
         free_cat[cat]=True
        
-        full_score = cat_score+rest_score
+        fullscore = cat_score+rest_score        # full score for this category
+        full6score = current6score+rest6score   # Full score for first 6 categories
 
-        # Need to add 35 the to score??
-        if cat<6:
-            first_6_score += cat_score
-
-        bonus = 35 if first_6_score>=63 else 0
-
-        scores.append((full_score+bonus, full_score, first_6_score, cat))
-
+        # Need to add 35 bonus to the score??
+        bonus = 35 if full6score>=63 else 0
+        scores.append((fullscore+bonus, fullscore, full6score-prev6score, cat))
+    
     # Memoize result
-    _, bestscore, first6score, cat = max(scores)
-    mem[(round, tuple(free_cat))] = (bestscore, first6score, cat)
-    return (bestscore, first6score, cat)
+    _, bestscore, best6score, cat = max(scores)
+    mem[(round, tuple(free_cat))] = (bestscore, best6score, cat)
+    return (bestscore, best6score, cat)
+
 
 def find_best_score(game):
 
-    # precomput all possible scores
-    build_score_table(game)
+    # precompute all possible scores
+    score_table = build_score_table(game)
     
     # Find best score
     mem = {}
-    total_score, first6score, first_cat = MaxScore(0, [True]*CATEGORIES, mem)
+    total_score, first6score, first_cat = MaxScore(0, [True]*CATEGORIES, 0, mem, score_table)
     bonus = 35 if first6score>=63 else 0
   
-    # Reconstruct category list starting from first_cat.
+    # Reconstruct category list
     score = []
     cat_free = [True]*CATEGORIES
 
     while len(score)<13:
         best_score, first6score, cat = mem[(len(score), tuple(cat_free))]
         cat_free[cat]=False
-        score.append((cat, SCORE_TABLE[len(score)][cat]))
+        score.append((cat, score_table[len(score)][cat]))
         
 
     score = [value for cat, value in sorted(score)]

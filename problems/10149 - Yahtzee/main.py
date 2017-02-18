@@ -131,10 +131,13 @@ def build_score_table(game):
 def MaxScore(round, free_cat, prev6score, mem, score_table):
     """
     Arguments:
-        round: Current round used for comparisons
-        free_cat (list): True if the category if free to use, False already used
+        round (int): Current round (from 0 to 13)
+        free_cat (list): List of booleans (length 13), if free_cat[i]=True 
+            the category i hasn't been used yet.
+        prev6score: sum of the first 6 categories scores (used until this round) 
         mem (dict): Memoization dictionary
-        score_table(2d array)
+        score_table(2d array): Precomputed table with all possible round scores
+
     Returns:
         int: bestscore
         int: first_ 6 categories score
@@ -156,11 +159,13 @@ def MaxScore(round, free_cat, prev6score, mem, score_table):
         if not free:
             continue
 
-        # Score for using this category in this round
+        # Score for the category used this round
         cat_score = score_table[round][cat]
+
+        # Sum of the scores for the 6 first categories used until now
         current6score = prev6score+cat_score if cat<6 else prev6score
 
-        # Best score/category from the remaining categories in the next round
+        # Best score and category for the remaining categories in the next round
         free_cat[cat]=False 
         rest_score, rest6score, _ = MaxScore(round+1, free_cat, current6score, mem, score_table) 
         free_cat[cat]=True

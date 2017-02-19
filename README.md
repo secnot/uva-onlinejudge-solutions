@@ -1,8 +1,7 @@
 # UVa Progamming Contest Solution
 
 This repository contains my python solutions to some [UVa contest problems]((https://uva.onlinejudge.org)), 
-it started while solving most of the problems sugested by [Algorithm Design Manual by Steven S. Skiena](https://www.amazon.com/dp/1849967202),
-and I've continue solving more.
+it started while solving most of the problems sugested by [Algorithm Design Manual by Steven S. Skiena](https://www.amazon.com/dp/1849967202), and continued from there.
 
 
 ## Videos 
@@ -19,8 +18,9 @@ and I've continue solving more.
 
 ## Websites
 
-Some useful websites with info about common competitive programming algorithms:
+Some useful websites with general info about algorithms or competitive programming:
 
+- [Wikibook: Data Structures ](https://en.wikibooks.org/wiki/Data_Structures)
 - [khanacademy.org: algorithms](https://www.khanacademy.org/computing/computer-science/algorithms/)
 - [Algorithmist.com](http://www.algorithmist.com/)
 - [GeeksforGeeks.org](http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/)

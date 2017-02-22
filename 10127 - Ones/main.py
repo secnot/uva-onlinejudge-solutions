@@ -1,57 +1,39 @@
 from sys import stdin
 
-# Solved using built-in big ints easy and SLOW,
-
-REVMUL = [
-    [], #0
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], #1
-    [], #2
-    [0, 7, 4, 1, 8, 5, 2, 9, 6, 3], #3
-    [], #4
-    [], #5 
-    [], #6
-    [0, 3, 6, 9, 2, 5, 8, 1, 4, 7], #7
-    [], #8
-    [0, 9, 8, 7, 6, 5, 4, 3, 2, 1]] #9
-
+REVMUL = {
+    1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    3: [0, 7, 4, 1, 8, 5, 2, 9, 6, 3],
+    7: [0, 3, 6, 9, 2, 5, 8, 1, 4, 7],
+    9: [0, 9, 8, 7, 6, 5, 4, 3, 2, 1]}
 
 def generate_ones_table(length):
-    """Generate set to check if all number digits are ones"""
-    table = set()
-    prev=1
-    for i in range(1,length):
-        table.add(prev)
-        prev=prev*10+1
-    return table
+    return set([int("1"*i) for i in range(1, length)])
 
-ALLTHEONES = generate_ones_table(9000)
-
-
+ALLTHEONES = generate_ones_table(20)
 
 def digit(num, pos): # Returns digit pos in num
     return num//10**pos%10
 
-
 def all_ones(num):
     return num in ALLTHEONES
 
-
 def find_ones(num):
 
-    last_digit = digit(num, 0)
-    revmul = REVMUL[last_digit]
+    if all_ones(num):
+        return len(str(num))
 
-    prev = 0 # result of previous multiplication
-    mult = 0 # multiplier used previous multiplication
-    i = 0 # index of digit being 'fixed'
+    revmul = REVMUL[digit(num, 0)]
 
-    while i==0 or not all_ones(prev):
-        fix = digit(prev, i)
-        mult = mult + revmul[(11-fix)%10]*(10**i)
-        i += 1
-        prev = num*mult
+    prod = 0 # rest previous multiplication not 
+    length = 0 # number of 1 computed
 
-    return len(str(prev))
+    while not all_ones(prod):
+        first = digit(prod, 0)
+        prod = prod + num*revmul[(11-first)%10]
+        prod = prod//10 # discard last digit (it's a one)
+        length += 1
+    
+    return length+len(str(prod))
 
 
 if __name__ == '__main__':

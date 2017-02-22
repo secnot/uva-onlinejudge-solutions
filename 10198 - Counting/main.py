@@ -4,14 +4,14 @@ from sys import stdin
 def generate_table(num):
     # t[n] = 2*t[n-1]+t[n-2]+t[n-3]
     t = [0, 2, 5, 13]
-    for n in range(4, num):
+    for n in range(4, num+1):
         t.append(2*t[n-1]+t[n-2]+t[n-3])
     return t
 
 
 if __name__ == '__main__':
 
-    TABLE = generate_table(1001)
+    TABLE = generate_table(1000)
     
     while True:
         line = stdin.readline()

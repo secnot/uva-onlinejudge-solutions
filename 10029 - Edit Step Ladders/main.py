@@ -1,58 +1,64 @@
 from sys import stdin
+from string import ascii_lowercase
 
-ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+ALPHABET = ascii_lowercase
 
-def word_transformation_generator(w):
+
+def word_transformations(w):
     """Return list of all valid step modifications for a given word"""
     # WARNING: This could be done much faster by using bytearray 
     # instead of inmutable strings but this is cleaner
-    mods = []
-
     for pos in range(len(w)):
-        # Del chars
+        # Delete the character
         if len(w)>1:
-            mods.append(w[:pos]+w[(pos+1):])  
+            yield w[:pos]+w[(pos+1):]
 
-        # Add chars
-        for c in ALPHABET:      
-            mods.append(w[:pos]+c+w[pos:])  
+        # Add a character
+        for c in ALPHABET:
+            transform = w[:pos]+c+w[pos:]
             
+            # break if it isn't in lexycographically order.
+            if transform >= w:
+                break
+           
+            yield transform
+
         # Mod chars
         for c in ALPHABET: 
-            mods.append(w[:pos]+c+w[(pos+1):])  
-
-    return mods
-
-
+            transform = w[:pos]+c+w[(pos+1):]
+            
+            # break if it isn't in lexycographically order.
+            if transform >= w:
+                break 
+            
+            yield transform
 
 def find_longest_ladder(words):
     """ Words is in essence a DAG (Directed Acyclic Graph) in topological order
-    So if we calculate the longest ladder starting with a word to the with in 
-    elements before it, the path won't change when we add more elements after it.
+    So if we calculate the longest ladder starting with a word to the  elements 
+    before it, the path won't change when we add more elements after it.
     Taking advantage of this fact we can incremetally calculate the longest path
     as new words are added.
     """
     # Initialize max length path for each word  
-    wpath = {w: 0 for w in words[:-1]}
+    wpath = {}
+   
+    # Iterate through input skipping the las new_line
+    for w in words[:-1]:
 
-    # Longest step ladder found 
-    longest_ladder_len = 0
-    
-    #
-    for head in words:
-        # Length for the longest ladder found for current word
-        word_ladder_len = 0
-       
+        length = 1
+
         # Find longest ladder for each valid word transformation (if any)
-        for w in word_transformation_generator(head):
-            if w not in wpath:
-                continue
-            word_ladder_len = max(word_ladder_len, wpath[w]+1)
+        for transform in word_transformations(w):
+         
+            # If the transformation isn't lexycographically ordered ignore it
+            if transform in wpath:
+                length = max(length, wpath[transform]+1)
+            
+            wpath[w] = length
 
-        wpath[head]=word_ladder_len
-        longest_ladder_len = max(word_ladder_len, longest_ladder_len)
-
-    return longest_ladder_len
+    # Find the longest constructed ladder
+    return max(length for length in wpath.values())
 
 
 if __name__ == '__main__':
